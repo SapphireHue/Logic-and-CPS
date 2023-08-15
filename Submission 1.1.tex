@@ -1,0 +1,255 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage[a4paper, margin=.5in]{geometry}
+\usepackage[table]{xcolor}
+\title{Submission 1.1}
+\author{Saffron Liu}
+\date{}
+\begin{document}
+\maketitle
+\begin{flushleft}
+    For problems 2-12:\\
+\end{flushleft}
+\begin{enumerate}[(a)]
+    \item \textit{Write the argument in standard form.}
+    \item \textit{Claim whether the argument is valid or sound. In some cases, soundness will be difficult to determine, so “soundness is difficult to determine” is an appropriate answer.}
+    \item \textit{Translate the argument into truth-functional logic. Be sure to delineate the extensions you give to atomic sentences and write the argument (now in truth-functional logic) in standard form.}
+          % \item \textit{Prove that the argument is valid or invalid (as appropriate) with a proof by truth table.}
+          % \item \textit{Prove that the argument is valid or invalid (as appropriate) with an informal proof.}
+\end{enumerate}
+\begin{flushleft}
+    Problems:
+\end{flushleft}
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item I have already said that he must have gone to King's Pyland or to Mapleton. He is not at King's Pyland, therefore he is at Mapleton. (Sir Arthur Conan Doyle) (B 20)
+          \begin{enumerate}[(a)]
+              \item He went to King's Pyland or to Mapleton.\\
+                    He is not at King's Pyland.\\
+                    \rule{15em}{.5pt}\\
+                    He is at Mapleton.
+              \item The argument not valid, because he might have gone to King's Pyland or Mapleton, but no longer be in either of those places. Because it is not valid, it cannot be sound.
+              \item \textit{A}: He went to King's Pyland\\
+                    \textit{B}: He went to Mapleton\\
+                    \textit{C}: He is at King's Pyland\\
+                    \textit{D}: He is at Mapleton\\\\
+                    $A \lor B$\\
+                    $\neg C$\\
+                    \rule{5em}{.5pt}\\
+                    $D$
+          \end{enumerate}
+    \item The patient will die unless we operate. We will operate. Therefore the patient will not die. (B 20)
+          \begin{enumerate}[(a)]
+              \item The patient will die unless we operate.\\
+                    We will operate.\\
+                    \rule{15em}{.5pt}\\
+                    The patient will not die.
+              \item The argument is not valid, because while operating is necessary for the patient to survive, it may not be sufficient. Since the argument is not valid, it cannot be sound.
+              \item \textit{A}: We operate\\
+                    \textit{B}: The patient dies\\
+
+                    $\neg A \to B$\\
+                    $A$\\
+                    \rule{5em}{.5pt}\\
+                    $\neg B$
+          \end{enumerate}
+    \item If I'm right, then I'm a fool. But if I'm a fool, I'm not right. Therefore, I'm no fool. (B 70)
+          \begin{enumerate}[(a)]
+              \item If I'm right, then I'm a fool.\\
+                    If I'm a fool, then I'm not right.\\
+                    \rule{15em}{.5pt}\\
+                    I'm not a fool.
+              \item The argument is not valid, since where both premises are true, it is still possible to be a fool. Since it is not valid, it cannot be sound either.
+              \item \textit{A}: I'm right\\
+                    \textit{B}: I'm a fool\\
+
+                    $A \to B$\\
+                    $B \to \neg A$\\
+                    \rule{5em}{.5pt}\\
+                    $\neg B$
+          \end{enumerate}
+    \item If I'm right, then I'm a fool. But if I'm a fool, I'm not right. Therefore, I'm not right. (B 70)
+          \begin{enumerate}[(a)]
+              \item If I'm right, then I'm a fool.\\
+                    If I'm a fool, then I'm not right.\\
+                    \rule{15em}{.5pt}\\
+                    I'm not right.
+              \item The argument is valid, but not sound (the premises are likely untrue).\\
+              \textit{Saffron's Commentary: I'm not sure whether or not the premises are contradictory? On one hand, if you're right you're a fool and if you're a fool you're not right doesn't seem to work, but it is possible to be a fool and not right without violating either premise. So it is possible for them to both be true at the same time, I think? Just very strange.}
+              \item \textit{A}: I'm right\\
+                    \textit{B}: I'm a fool\\
+
+                    $A \to B$\\
+                    $B \to \neg A$\\
+                    \rule{5em}{.5pt}\\
+                    $\neg A$
+          \end{enumerate}
+    \item If Einstein's theory of relativity is correct, light bends in the vicinity of the sun. Light does indeed bend at the vicinity of the sun. It follows that Einstein's theory of relativity is correct. (B 70)
+          \begin{enumerate}[(a)]
+              \item If Einstein's theory of relativity is correct, then light bends in the vicinity of the sun.\\
+                    Light bends in the vicinity of the sun.\\
+                    \rule{15em}{.5pt}\\
+                    Einstein's theory of relativity is correct.
+              \item The argument is not valid because light could bend near the sun for a different reason than Einstein posits, so the premises would be true but the conclusion would be false. Because it is not valid, it is also not sound.
+              \item \textit{A}: Einstein's theory of relativity is correct\\
+                    \textit{B}: Light bends in the vicinity of the sun
+
+                    $A \to B$\\
+                    $B$\\
+                    \rule{5em}{.5pt}\\
+                    $A$
+          \end{enumerate}
+    \item Congress will agree to the cut only if the President announces his support first. The President won't announce his support first, so Congress won't agree to the cut. (B 20)
+          \begin{enumerate}[(a)]
+              \item Congress will agree to the cut only if the President announces his support first (If the President doesn't announce his support, Congress will not agree to the cut).\\
+                    The president won't announce his support first.\\
+                    \rule{15em}{.5pt}\\
+                    Congress won't agree to the cut.
+              \item The argument is valid and probably sound.
+              \item \textit{A}: Congress will agree to the cut.\\
+                    \textit{B}: The President will announce his support first.\\
+
+                    $\neg B \to \neg A$\\
+                    $\neg B$\\
+                    \rule{5em}{.5pt}\\
+                    $\neg A$
+          \end{enumerate}
+    \item If you are ambitious, you'll never achieve all your goals. But life has meaning only if you have ambition. Thus, if you achieve all your goals, life has no meaning. (B 132)
+          \begin{enumerate}[(a)]
+              \item If you are ambitious, you'll never achieve all your goals.\\
+                    Life has meaning only if you have ambition.\\
+                    \rule{15em}{.5pt}\\
+                    If you achieve all your goals, then life has no meaning.
+              \item The argument is valid. Soudness is difficult to determine.
+              \item \textit{A}: You are ambitious.\\
+                    \textit{B}: You achieve all your goals.\\
+                    \textit{C}: Life has meaning.\\
+
+                    $A \to \neg B$\\
+                    $\neg A \to \neg C$\\
+                    \rule{5em}{.5pt}\\
+                    $B \to \neg C$
+          \end{enumerate}
+    \item If Adams wins the election, Brown will retire to private life. If Brown dies before the election, Adams will win it. Therefore, if Brown dies before the election, he will retire to private life. (Is this evidence that English conditionals aren't truth-functional?) (J 31)
+          \begin{enumerate}[(a)]
+              \item If Adams wins the election, Brown will retire to private life.\\
+                    If Brown dies before the election, Adams will win the election.\\
+                    \rule{15em}{.5pt}\\
+                    If Brown dies before the election, he will retire to private life.
+              \item The argument is valid. It is not sound because the first premise isn't always true (If Adams wins the election and Brown dies, Brown cannot retire to private life).
+              \item \textit{A}: Adams wins the election.\\
+                    \textit{B}: Brown retires to private life.\\
+                    \textit{C}: Brown dies before the election.\\
+
+                    $A \to B$\\
+                    $C \to A$\\
+                    \rule{5em}{.5pt}\\
+                    $C \to B$
+          \end{enumerate}
+    \item "Thin is guilty," observed Watson, “because either Holmes is right and the vile Moriarty is guilty or he is wrong and the scurrilous Thin did the job; but those scoundrels are either both guilty or both innocent; and, as usual, Holmes is right.” (J 18)
+          \begin{enumerate}[(a)]
+              \item Holmes is right or wrong.\\
+                    If Holmes is right, Moriarty is guilty.\\
+                    If Holmes is wrong, Thin is guilty.\\
+                    Moriarty and Thin are either both guilty or both innocent (i.e. If Moriarty is guilty, Thin is guilty).\\
+                    \rule{15em}{.5pt}\\
+                    Thin is guilty.
+              \item The argument is valid. Soundness is difficult to determine.
+              \item \textit{A}: Holmes is right.\\
+                    \textit{B}: Moriarty is guilty.\\
+                    \textit{C}: Thin is guilty.\\
+
+                    $A \lor \neg A$\\
+                    $A \to B$\\
+                    $\neg A \to C$\\
+                    $B \to C$\\
+                    \rule{5em}{.5pt}\\
+                    $C$
+          \end{enumerate}
+    \item Mittens meows exactly when she is hungry. Mittens is meowing, but she isn't hungry. Therefore the end of the Earth is at hand. (B 70)
+          \begin{enumerate}[(a)]
+              \item Mittens meows if and only if she is hungry.\\
+                    Mittens is meowing, but she is not hungry.\\
+                    \rule{15em}{.5pt}\\
+                    The end of the Earth is at hand.
+              \item The argument is valid but not sound because there is a contradiction in the premises.
+              \item \textit{A}: Mittens meows.\\
+                    \textit{B}: Mittens is hungry.\\
+                    \textit{C}: The world is ending.\\
+
+                    $A \iff B$\\
+                    $A \land \neg B$\\
+                    \rule{5em}{.5pt}\\
+                    $C$
+          \end{enumerate}
+    \item God is omnipotent if and only if He can do everything. If He can't make a stone so heavy that He can't lift it, then he can't do everything. But if He can make a stone so heavy that He can't lift it, He can't do everything. Therefore, either God is not omnipotent or God does not exist. (B 132)
+          \begin{enumerate}[(a)]
+              \item God is omnipotent if and only if he can do everything.\\
+                    If he cannot make a stone so heavy that he cannot lift it, he cannot do everything.\\
+                    If he can make a stone that he cannot lift, he cannot do everything.\\
+                    \rule{15em}{.5pt}\\
+                    Either god is not omnipotent or he does not exist.
+              \item The argument is valid. Soudness is difficult to determine.\\
+                    \textit{Saffron's Commentary: I have no idea where the existence of God fits into that argument. In the English, it makes sense that it suddenly appears in the conclusion; in the logical notation, less so. I don't know whether that makes it invalid or not.}
+              \item \textit{A}: God exists.\\
+                    \textit{B}: God is omnipotent.\\
+                    \textit{D}: God can do everything.\\
+                    \textit{C}: God can make a stone which he cannot lift.\\
+
+                    $B \iff C$\\
+                    $\neg D \to \neg C$\\
+                    $D \to \neg C$\\
+                    \rule{5em}{.5pt}\\
+                    $\neg B \lor \neg A$
+          \end{enumerate}
+\end{enumerate}
+\begin{enumerate}
+    \setcounter{enumi}{12}
+    \item Consider the tic-tac-toe grid with the squares labeled as this:
+          \begin{center}
+              \begin{tabular}{c|c|c}
+                  1 & 2 & 3 \\
+                  \hline
+                  4 & 5 & 6 \\
+                  \hline
+                  7 & 8 & 9
+              \end{tabular}
+          \end{center}
+          Suppose that X moves first to square 5, and O moves next to square 4. Prove that X can
+          guarantee a win. (Cline)\\\\
+          X's next move should be to square 1.
+          After these three moves, the board looks like this:
+          \begin{center}
+            \begin{tabular}{c|c|c}
+                X & 2 & 3 \\
+                \hline
+                O & X & 6 \\
+                \hline
+                7 & 8 & 9
+            \end{tabular}
+        \end{center}
+         At this point, if O chooses to move to any square other than square 9, X can move to square 9 on the next turn and win. See below for one possible outcome:
+         \begin{center}
+            \begin{tabular}{c|c|c}
+                X & O & 3 \\
+                \hline
+                O & X & 6 \\
+                \hline
+                7 & 8 & X
+            \end{tabular}
+        \end{center}
+         If O \textit{does} chose to move to square 9, X can move next to square 3. The board would then look like this:
+         \begin{center}
+            \begin{tabular}{c|c|c}
+                X & 2 & X \\
+                \hline
+                O & X & 6 \\
+                \hline
+                7 & 8 & O
+            \end{tabular}
+        \end{center}
+        If O played in any square other than 2, X could play in square 2 on the next turn and win. However, the same is true of square 7: if O plays in any square other than 7, X can then play in square 7 and win. 
+        However, O cannot play in both squares 2 and 7 on the same turn. Regardless of where O plays, X will be able to win by playing in either square 2 or square 7. 
+        
+\end{enumerate}
+\end{document}
