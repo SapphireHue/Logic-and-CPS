@@ -10,7 +10,7 @@
 \maketitle
 
 \begin{enumerate}
-      \item Knaves always lie, knights always tell the truth, and in Transylvania, where everybody is one or the other (but you can’t tell which by looking), you encounter two people, one of whom says, “He’s a knight or I’m a knave.” What are they? (J 20)\\\\
+      \item Knaves always lie, knights always tell the truth, and in Transylvania, where everybody is one or the other (but you can't tell which by looking), you encounter two people, one of whom says, “He's a knight or I'm a knave.” What are they? (J 20)\\\\
             A: I'm a knight.\\
             B: He's a knight.\\
             C: He's a knight or I'm a knave.\\
@@ -28,6 +28,7 @@
             \end{tabular}
             Both he and I are knights.
 \end{enumerate}
+
 \begin{flushleft}
       For problems 2-12:\\
 \end{flushleft}
@@ -36,8 +37,9 @@
       \item \textit{Claim whether the argument is valid or sound. In some cases, soundness will be difficult to determine, so “soundness is difficult to determine” is an appropriate answer.}
       \item \textit{Translate the argument into truth-functional logic. Be sure to delineate the extensions you give to atomic sentences and write the argument (now in truth-functional logic) in standard form.}
       \item \textit{Prove that the argument is valid or invalid (as appropriate) with a proof by truth table.}
-            % \item \textit{Prove that the argument is valid or invalid (as appropriate) with an informal proof.}
+      \item \textit{Prove that the argument is valid or invalid (as appropriate) with an informal proof.}
 \end{enumerate}
+
 \begin{enumerate}
       \setcounter{enumi}{1}
       \item I have already said that he must have gone to King's Pyland or to Mapleton. He is not at King's Pyland, therefore he is at Mapleton. (Sir Arthur Conan Doyle) (B 20)
@@ -46,7 +48,7 @@
                         He is not at King's Pyland.\\
                         \rule{15em}{.5pt}\\
                         He is at Mapleton.
-                  \item The argument not valid, because he might have gone to King's Pyland or Mapleton, but no longer be in either of those places. Because it is not valid, it cannot be sound.
+                  \item The argument invalid and unsound.
                   \item \textit{A}: He went to King's Pyland\\
                         \textit{B}: He went to Mapleton\\
                         \textit{C}: He is at King's Pyland\\
@@ -55,6 +57,8 @@
                         $\neg C$\\
                         \rule{5em}{.5pt}\\
                         $D$
+                        \setcounter{enumii}{4}
+                  \item The argument is invalid because he might have gone to King's Pyland or Mapleton, but no longer be in either of those places. For example, he may have gone to Mapleton, but since left and thus no longer be there.
             \end{enumerate}
       \item The patient will die unless we operate. We will operate. Therefore the patient will not die. (B 20)
             \begin{enumerate}[(a)]
@@ -62,7 +66,7 @@
                         We will operate.\\
                         \rule{15em}{.5pt}\\
                         The patient will not die.
-                  \item The argument is not valid, because while operating is necessary for the patient to survive, it may not be sufficient. Since the argument is not valid, it cannot be sound.
+                  \item The argument is invalid and unsound.
                   \item \textit{A}: We operate\\
                         \textit{B}: The patient dies\\
 
@@ -80,6 +84,7 @@
                               \rowcolor{lightgray} F & F & F
                         \end{tabular} \\
                         Where both premises are true, B can still be either true or false. This means there is no guarantee the patient will not die, so the argument is invalid.
+                  \item The argument is not valid, because while operating is necessary for the patient to survive, it may not be sufficient.
             \end{enumerate}
       \item If I'm right, then I'm a fool. But if I'm a fool, I'm not right. Therefore, I'm no fool. (B 70)
             \begin{enumerate}[(a)]
@@ -87,7 +92,7 @@
                         If I'm a fool, then I'm not right.\\
                         \rule{15em}{.5pt}\\
                         I'm not a fool.
-                  \item The argument is invalid and unsound. If you look at the truth table in 5d, you can see that there is a counterexample where I'm not right and also a fool.
+                  \item The argument is invalid and unsound.
                   \item \textit{A}: I'm right\\
                         \textit{B}: I'm a fool\\
 
@@ -95,6 +100,8 @@
                         $B \to \neg A$\\
                         \rule{5em}{.5pt}\\
                         $\neg B$
+                        \setcounter{enumii}{4}
+                  \item  It is possible to be not right and also a fool.
             \end{enumerate}
       \item If I'm right, then I'm a fool. But if I'm a fool, I'm not right. Therefore, I'm not right. (B 70)
             \begin{enumerate}[(a)]
@@ -102,7 +109,7 @@
                         If I'm a fool, then I'm not right.\\
                         \rule{15em}{.5pt}\\
                         I'm not right.
-                  \item The argument is valid, because being right poses a contradiction with the premises, but being not right doesn't cause any contradiction. Therefore, I must not be right\\
+                  \item The argument is valid, but unsound because the premises may not be true.\\
                         \textit{Saffron's Commentary: I'm not sure whether or not the premises are contradictory? On one hand, if you're right you're a fool and if you're a fool you're not right doesn't seem to work, but it is possible to be a fool and not right without violating either premise. So it is possible for them to both be true at the same time, I think? Just very strange.\\
                               Update: An argument is always valid where the premises are inconsistent, because then there is never a counterexample.}
                   \item \textit{A}: I'm right\\
@@ -122,6 +129,7 @@
                               F                      & F & T         & T              \\
                         \end{tabular} \\
                         The argument is valid because in all rows where the premises are met, I am not right.\\
+                  \item The argument is valid. If I assume I am right, then I am a fool, and then I'm not right. My assumption creates a contradiction, therefore it must be false and I must not be right.
             \end{enumerate}
       \item If Einstein's theory of relativity is correct, light bends in the vicinity of the sun. Light does indeed bend at the vicinity of the sun. It follows that Einstein's theory of relativity is correct. (B 70)
             \begin{enumerate}[(a)]
@@ -129,7 +137,7 @@
                         Light bends in the vicinity of the sun.\\
                         \rule{15em}{.5pt}\\
                         Einstein's theory of relativity is correct.
-                  \item The argument is not valid because light could bend near the sun for a different reason than Einstein posits, so the premises would be true but the conclusion would be false. Because it is not valid, it is also not sound.
+                  \item The argument is invalid and unsound.
                   \item \textit{A}: Einstein's theory of relativity is correct\\
                         \textit{B}: Light bends in the vicinity of the sun
 
@@ -137,6 +145,8 @@
                         $B$\\
                         \rule{5em}{.5pt}\\
                         $A$
+                        \setcounter{enumii}{4}
+                  \item The argument is not valid because light could bend near the sun for a different reason than Einstein posits, so the premises would be true but the conclusion would be false.
             \end{enumerate}
       \item Congress will agree to the cut only if the President announces his support first. The President won't announce his support first, so Congress won't agree to the cut. (B 20)
             \begin{enumerate}[(a)]
@@ -160,6 +170,7 @@
                               \rowcolor{lightgray} F & T & T                                 \\
                               F                      & F & T
                         \end{tabular} \\ The argument is valid because the only row where both premises are true is where Congress does not agree to the cut.
+                  \item The president will not announce his support. If the president does not announce support, Congress will not agree to the cut. Therefore, Congress will not agree to the cut and the argument is valid.
             \end{enumerate}
       \item If you are ambitious, you'll never achieve all your goals. But life has meaning only if you have ambition. Thus, if you achieve all your goals, life has no meaning. (B 132)
             \begin{enumerate}[(a)]
@@ -241,7 +252,7 @@
                         \rule{5em}{.5pt}\\
                         $C$
                   \item \begin{tabular}{c|c|c|c|c}
-                              A & B & C & $A \iff B$ & $A \land \neg B$ \\
+                              A                      & B & C & $A \iff B$ & $A \land \neg B$ \\
                               \hline
                               \rowcolor{lightgray} T & T & T & T          & F                \\
                               \rowcolor{lightgray} T & T & F & T          & F                \\
@@ -263,19 +274,33 @@
                         Either god is not omnipotent or he does not exist.
                   \item The argument is valid. Soudness is difficult to determine.\\
                         \textit{Saffron's Commentary: I have no idea where the existence of God fits into that argument. In the English, it makes sense that it suddenly appears in the conclusion; in the logical notation, less so. I don't know whether that makes it invalid or not.\\
-                              Update: It seems like there's a contradiction posed by $\neg D \to \neg C$ and $D \to \neg C$, because the second statemnent is equivalent to $C \to \neg D$, meaning $C \to \neg C$. However, Descartes'} cogito \textit{has the same issue.}
+                              Update: I'm choosing to make his existence biconditional with his omnipotence.}
                   \item \textit{A}: God exists.\\
                         \textit{B}: God is omnipotent.\\
                         \textit{C}: God can do everything.\\
                         \textit{D}: God can make a stone which he cannot lift.\\
 
+                        $A \leftrightarrow B$\\
                         $B \leftrightarrow C$\\
                         $\neg D \to \neg C$\\
                         $D \to \neg C$\\
                         \rule{5em}{.5pt}\\
                         $\neg B \lor \neg A$
+                  \item Either God can or cannot make a stone so heavy that he cannot lift it. In either case, he cannot do anything and is thus not omnipotent. Thus, he is either not omnipotent, or does not exist, as his existence is biconditional with his omnipotence.
             \end{enumerate}
 \end{enumerate}
+
+\begin{flushleft}
+      For problems 13-20:
+\end{flushleft}
+
+\begin{itemize}
+      \item \textit{If the claim that's made is correct, prove that it's correct.}
+      \item \textit{If the claim that's made is incorrect, prove that it's incorrect.}
+      \item \textit{If the problem asks a question, answer it with a correct claim, and prove that your
+                  claim is correct.}
+\end{itemize}
+
 \begin{enumerate}
       \setcounter{enumi}{12}
       \item Consider the tic-tac-toe grid with the squares labeled as this:
@@ -323,6 +348,22 @@
             \end{center}
             If O played in any square other than 2, X could play in square 2 on the next turn and win. However, the same is true of square 7: if O plays in any square other than 7, X can then play in square 7 and win.
             However, O cannot play in both squares 2 and 7 on the same turn. Regardless of where O plays, X will be able to win by playing in either square 2 or square 7.
+      \item You can't make a valid argument invalid by adding premises. (J 19)\\
+            This claim is correct. An argument is invalid if and only if there is a counterexample, i.e. a case where all premises are true but the conclusion is false. Adding a premise can never cause a case where not all premises were true to become a case with all true premises. Thus, adding a premise can never increase the number of counterexamples an argument has. Because valid arguments have no counterexamples, adding a premise to a valid argument will keep the argument's state as having no counterexamples. Thus, the argument will still be valid.
+      \item You can't make an invalid argument valid by removing premises. (J 19)\\
+            This claim is correct. An argument is invalid if and only if it has one or more counterexample. Removing premises from an argument cannot cause a case to go from having all true premises to having at least one untrue premise. Thus, removing premises can only create new counterexamples, not remove counterexamples. Therefore, removing premises from an argument with at least one counterexample can never cause the argument to have no counterexamples, so removing premises from an invalid argument can never create a valid argument.
+      \item Suppose ($A \land B) \to C$ is contingent. What can you say about the argument \begin{tabular}{c}A\\B\\\hline C\end{tabular}? (M 46)\\
+            \textit{Saffron's Commentary: I don't really know what contingent means! It's defined in the textbook, but I don't know if this question means "C is contingent upon $A \land B$" or simply "$(A \land B) \to C$" may be true or untrue depending on the case. I'm assuming the latter for this problem, but who knows.
+                  Update: it's fine, probably? See theorem-argument exchange (Theorem 1.1).}\\
+            The argument is invalid. For ($A \land B) \to C$ to be contingent (and not a tautology), there must be at least one case where the conditional is false. This means there is a case where $A \land B$ is true but C is false, which would be a counterexample to the argument, rendering it invalid.
+      \item Suppose the argument \begin{tabular}{c}A\\B\\\hline C\end{tabular} is valid. What can you say about ($A \land B) \to C$?\\
+            ($A \land B) \to C$ is a tautology. Because the argument is valid, there is no case where all premises (both A and B) are true but C is false. Such a case would be the only one in which the conditional was not true, but because it does not exist, ($A \land B) \to C$ must always be true.
+      \item Some arguments with contradictory premises aren't valid. (B 59)\\
+            This claim is incorrect. For an argument to be valid, there must be a counterexample. However, if the premises are contradictory, there is no case where all premises are true, and thus no counterexamples.
+      \item Suppose that \{A, B, C\} is inconsistent. What can you say about $A \land B \land C$? (M 46)\\
+            $A \land B \land C$ is always false and therefore a contradiction. Because \{A, B, C\} is inconsistent, there is no case in which they are all true, so there must always be at least one atomic sentence which is false. $A \land B \land C$ is false if at least one of it's atomic sentences is false.
+      \item Some arguments whose conclusions are contradictions are valid.\\
+            This claim is true. Any argument with inconsistent premises will never have a counterexample, because there is no case where all premises are true. Thus, the argument would be valid.
 
 \end{enumerate}
 \end{document}
