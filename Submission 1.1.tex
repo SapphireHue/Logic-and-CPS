@@ -22,9 +22,9 @@
                   A & B & $C: B \lor \neg A$ & $A \leftrightarrow C$ \\
                   \hline
                   T & T & T                  & T                     \\
-                  T & F & F                  & F                     \\
-                  F & T & T                  & F                     \\
-                  F & F & T                  & F                     \\
+                  \rowcolor{lightgray} T & F & F                  & F                     \\
+                  \rowcolor{lightgray} F & T & T                  & F                     \\
+                  \rowcolor{lightgray} F & F & T                  & F                     \\
             \end{tabular}
             Both he and I are knights.
 \end{enumerate}
@@ -178,7 +178,7 @@
                         Life has meaning only if you have ambition.\\
                         \rule{15em}{.5pt}\\
                         If you achieve all your goals, then life has no meaning.
-                  \item The argument is valid. Soudness is difficult to determine.
+                  \item The argument is valid. If you achieve all your goals, you are not ambitious, and if you are not ambitious, life has no meaning. Soudness is difficult to determine.
                   \item \textit{A}: You are ambitious.\\
                         \textit{B}: You achieve all your goals.\\
                         \textit{C}: Life has meaning.\\
@@ -286,6 +286,7 @@
                         $D \to \neg C$\\
                         \rule{5em}{.5pt}\\
                         $\neg B \lor \neg A$
+                  \setcounter{enumii}{4}
                   \item Either God can or cannot make a stone so heavy that he cannot lift it. In either case, he cannot do anything and is thus not omnipotent. Thus, he is either not omnipotent, or does not exist, as his existence is biconditional with his omnipotence.
             \end{enumerate}
 \end{enumerate}
@@ -347,7 +348,7 @@
                   \end{tabular}
             \end{center}
             If O played in any square other than 2, X could play in square 2 on the next turn and win. However, the same is true of square 7: if O plays in any square other than 7, X can then play in square 7 and win.
-            However, O cannot play in both squares 2 and 7 on the same turn. Regardless of where O plays, X will be able to win by playing in either square 2 or square 7.
+            However, O cannot play in both squares 2 and 7 on the same turn. Regardless of where O plays, X will be able to win by playing in either square 2 or square 7. Therefore, regardless of where O plays on any turn, X is able to guarantee a win. 
       \item You can't make a valid argument invalid by adding premises. (J 19)\\
             This claim is correct. An argument is invalid if and only if there is a counterexample, i.e. a case where all premises are true but the conclusion is false. Adding a premise can never cause a case where not all premises were true to become a case with all true premises. Thus, adding a premise can never increase the number of counterexamples an argument has. Because valid arguments have no counterexamples, adding a premise to a valid argument will keep the argument's state as having no counterexamples. Thus, the argument will still be valid.
       \item You can't make an invalid argument valid by removing premises. (J 19)\\
@@ -363,7 +364,7 @@
       \item Suppose that \{A, B, C\} is inconsistent. What can you say about $A \land B \land C$? (M 46)\\
             $A \land B \land C$ is always false and therefore a contradiction. Because \{A, B, C\} is inconsistent, there is no case in which they are all true, so there must always be at least one atomic sentence which is false. $A \land B \land C$ is false if at least one of it's atomic sentences is false.
       \item Some arguments whose conclusions are contradictions are valid.\\
-            This claim is true. Any argument with inconsistent premises will never have a counterexample, because there is no case where all premises are true. Thus, the argument would be valid.
+            This claim is correct. Any argument with inconsistent premises will never have a counterexample, because there is no case where all premises are true. Thus an argument with inconsistent premises and a contradicion for a conclusion would be valid.
 
 \end{enumerate}
 \end{document}
