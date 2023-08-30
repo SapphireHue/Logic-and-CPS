@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage[a4paper, margin=.5in]{geometry}
+\usepackage[table]{xcolor}
+
+\title{Submission 1.2}
+\author{Saffron Liu}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+    For problems 10-13:
+\end{flushleft}
+\begin{itemize}
+    \item \textit{If the claim that’s made is correct, prove that it’s correct.}
+    \item \textit{If the claim that’s made is incorrect, prove that it’s incorrect.}
+    \item \textit{If the problem asks a question, answer it with a correct claim, and prove that your claim is correct.}
+\end{itemize}
+
+\begin{enumerate}
+    \setcounter{enumi}{9}
+    \item A two-place connective, $\circ$, is called associative if $(A \circ B) \circ C$ is logically equivalent to $A \circ (B \circ C)$. Which of $\land, \lor, \to, \leftrightarrow$ are associative? (J 20)\\
+          $\land, \lor$, and $\leftrightarrow$ are associative. $\to$ is not.\\
+          $(A \land B) \land C$ and $A \land (B \land C)$ are logically equivalent because each is true if and only if A, B, and C are all true; if at least one is false, the expression is as well.\\
+          $(A \lor B) \lor C$ and $A \lor (B \lor C)$ are logically equivalent because each is false if and only if A, B, and C are all false; if at least one is true, the expression is true.\\
+          $(A \leftrightarrow B) \leftrightarrow C$ and $A \leftrightarrow (B \leftrightarrow C)$ are logically equivalent. I can't explain it, but hey look, I made a truth table!
+          \begin{tabular}{c|c|c|c|c}
+              A & B & C & $(A \leftrightarrow B) \leftrightarrow C$ & $A \leftrightarrow (B \leftrightarrow C)$ \\
+              \hline
+              T & T & T & T                                         & T                                         \\
+              T & T & F & F                                         & F                                         \\
+              T & F & T & F                                         & F                                         \\
+              T & F & F & T                                         & T                                         \\
+              F & T & T & F                                         & F                                         \\
+              F & T & F & T                                         & T                                         \\
+              F & F & T & T                                         & T                                         \\
+              F & F & F & F                                         & F
+          \end{tabular}\\
+          % $(A \leftrightarrow B) \leftrightarrow C$ and $A \leftrightarrow (B \leftrightarrow C)$ are logically equivalent. $(A \leftrightarrow B) \leftrightarrow C$ is the same as $((A \to B) \land (B \to A)) \to 
+          % ^ that was supposed to be a thing with equivalences but I'm too tired to make it work
+          $(A \to B) \to C$ and $A \to (B \to C)$ are not logically equivalent because $(F \to T) \to F$ is false while $F \to (T \to F)$ is true.
+    \item Suppose C is a tautology. What can you say about the argument \begin{tabular}{c}A\\B\\\hline C\end{tabular}? (M 46)\\
+          The argument is valid. Because C is a tautology, the conclusion of the argument is always true, and thus there can be no counterexample to the argument.
+    \item Suppose that A and B are logically equivalent. What can you say about $A \lor B$? (M 46)\\
+          A and B are each logically equivalent to $A \lor B$. If A is true, $A \lor B$ is also true. If A is false, B must be false as well (since $A \leftrightarrow B$), and thus $A \lor B$ is also false. This means A is logically equivalent to $A \lor B$, and because B is logically equivalent to A, B is logically equivalent to $A \lor B$ as well.
+    \item Suppose that A and B are not logically equivalent. What can you say about $A \lor B$? (M 46)\\
+          $A \lor B$ is a tautology. Where A is true, B must be false and $A \lor B$ must be true. Where A is false, B must be true and so $A \lor B$ must be true. $A \lor \neg A$ is a tautology, and because $A \lor B$ follows from it, $A \lor B$ must also be a tautology.
+\end{enumerate}
+\end{document}
