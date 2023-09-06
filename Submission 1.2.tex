@@ -9,12 +9,105 @@
 \begin{document}
 \maketitle
 
+\begin{enumerate}
+    \item Jones, feeling upset about the insecurity of the Social Security system, sighs that he faces a dilemma: “If taxes aren't raised, I'll have no money when I'm old. If taxes are raised, I'll have no money now.” Smith, ever the even-tempered one, reasons that neither of Jones's contentions is true. Jones answers, “Aha! You've contradicted yourself!” Show that Smith's assertion that both Jones's claims are false is indeed contradictory. (B 133)\\
+          A: Taxes are raised.\\
+          B: Jones will have no money when he's old.\\
+          C: Jones will have no money now.\\
+          D: Both of Jones' claims are false, i.e. $\neg (A \to C) \land \neg (\neg A \to B)$\\
+          \begin{tabular}{c|c|c|c|c|c}
+              A & B & C & $A \to C$ & $\neg A \to B$ & D \\
+              \hline
+              T & T & T & T         & T              & F \\
+              T & T & F & F         & T              & F \\
+              T & F & T & T         & T              & F \\
+              T & F & F & F         & T              & F \\
+              F & T & T & T         & T              & F \\
+              F & T & F & T         & T              & F \\
+              F & F & T & T         & F              & F \\
+              F & F & F & T         & F              & F \\
+          \end{tabular}\\
+          There is no case in which both of Jones' claims are false, so Smith's assertion is never true. Thus, Smith's assertion is a contradiction.
+    \item Consider the statement: If a fetus is a person, it has a right to life. Which of the following sentences follow from this? (B 26)\\
+          Statement C, "If a fetus doesn't have a right to life, it isn't a person" and Statement E, "A fetus isn’t a person only if it doesn’t have a right to life," follow by contraposition.
+    \item Consider this statement from IRS publication 17: Your Federal Income Tax: If you are single, you must file a return if you had gross income of \$3,560 or more for the year. What follows from this, together with the information listed? (B 26)
+          \begin{enumerate}
+              \item You are single with an income of \$2,500.\\
+                    No information can be derived from this.
+              \item You are married with an income of \$2,500.\\
+                    No information can be derived from this.
+              \item You are single with an income of \$25,000.\\
+                    You must file a tax return.
+              \item You are single but do not have to file a return.\\
+                    Your gross income was less than \$3,560.
+              \item You are married but do not have to file a return.\\
+                    No information can be derived from this.
+          \end{enumerate}
+\end{enumerate}
+
+\begin{flushleft}
+    For problems 4-9, prove that the argument is valid (if applicable) with a proof by natural deduction.
+\end{flushleft}
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item I have already said that he must have gone to King's Pyland or to Mapleton. He is not at King's Pyland, therefore he is at Mapleton. (Sir Arthur Conan Doyle) (B 20)
+          \begin{enumerate}
+              \item He is at King's Pyland or at Mapleton. (Premise 1)
+              \item He is not at King's Pyland. (Premise 2)
+              \item He is at Mapleton. (DS)
+          \end{enumerate}
+    \item If I'm right, then I'm a fool. But if I'm a fool, I'm not right. Therefore, I'm not right. (B 70)
+          \begin{enumerate}
+              \item If I'm right, then I'm a fool. (Premise 1)
+              \item If I'm a fool, then I'm not right. (Premise 2)
+              \item If I'm not a fool, then I'm not right. (ContraPos, b)
+              \item I'm either a fool or not a fool. (Taut)
+              \item I'm not right or I'm not right. (CD, b, c, d)
+              \item I'm not right. (Rep, e)
+          \end{enumerate}
+    \item Congress will agree to the cut only if the President announces his support first. The President won't announce his support first, so Congress won't agree to the cut. (B 20)
+          \begin{enumerate}
+              \item Congress will agree to the cut only if the President announces his support first. (Premise 1)
+              \item The President will not announce his support first. (Premise 2)
+              \item If the president does not announce his support, Congress will not agree to the cut. (ContraPos, a)
+              \item Congress will not agree to the cut. (MP, b, c)
+          \end{enumerate}
+    \item If you are ambitious, you'll never achieve all your goals. But life has meaning only if you have ambition. Thus, if you achieve all your goals, life has no meaning. (B 132)
+          \begin{enumerate}
+              \item If you are ambitious, then you'll never achieve all your goals. (Premise 1)
+              \item Life has meaning only if you have ambition. (Premise 2)
+              \item If you achieve all your goals, you are not ambitious. (ContraPos, a)
+              \item If you are not ambitious, life does not have meaning. (ContraPos, b)
+              \item If you achieve all your goals, life does not have meaning. (HS, c, d)
+          \end{enumerate}
+    \item Mittens meows exactly when she is hungry. Mittens is meowing, but she isn't hungry. Therefore the end of the Earth is at hand. (B 70)
+          \begin{enumerate}
+              \item Mittens meows exactly when she is hungry. (Premise 1)
+              \item Mittens is meowing, but she isn't hungry. (Premise 2)
+              \item The world is ending. (ContraPrm, a, b)
+          \end{enumerate}
+    \item God is omnipotent if and only if He can do everything. If He can't make a stone so heavy that He can't lift it, then he can't do everything. But if He can make a stone so heavy that He can't lift it, He can't do everything. Therefore, either God is not omnipotent or God does not exist. (B 132)
+          \begin{enumerate}
+              \item God is omnipotent if and only if he can do everything. (Premise 1)
+              \item If he can't make a stone so heavy that he can't lift it, then he can't do everything. (Premise 2)
+              \item If he can make a stone so heavy that he can't lift it, then he can't do everything. (Premise 3)
+              \item He either can or can't make a stone so heavy that he can't lift it. (Taut)
+              \item He can't do everything or he can't do everything. (CD, b, c, d)
+              \item He can't do everything. (Rep, e)
+              \item If God is omnipotent, he can do everything, and if he can do everything, he is omnipotent. (Equiv, a)
+              \item If God is omnipotent, he can do everything. (Simp, g)
+              \item If he can't do everything, he is not omnipotent. (ContraPos, h)
+              \item He is not omnipotent. (MP, i, f)
+              \item He is not omnipotent or he does not exist. (Add, j)
+          \end{enumerate}
+\end{enumerate}
+
 \begin{flushleft}
     For problems 10-13:
 \end{flushleft}
 \begin{itemize}
-    \item \textit{If the claim that’s made is correct, prove that it’s correct.}
-    \item \textit{If the claim that’s made is incorrect, prove that it’s incorrect.}
+    \item \textit{If the claim that's made is correct, prove that it's correct.}
+    \item \textit{If the claim that's made is incorrect, prove that it's incorrect.}
     \item \textit{If the problem asks a question, answer it with a correct claim, and prove that your claim is correct.}
 \end{itemize}
 
@@ -46,5 +139,18 @@
           A and B are each logically equivalent to $A \lor B$. If A is true, $A \lor B$ is also true. If A is false, B must be false as well (since $A \leftrightarrow B$), and thus $A \lor B$ is also false. This means A is logically equivalent to $A \lor B$, and because B is logically equivalent to A, B is logically equivalent to $A \lor B$ as well.
     \item Suppose that A and B are not logically equivalent. What can you say about $A \lor B$? (M 46)\\
           $A \lor B$ is a tautology. Where A is true, B must be false and $A \lor B$ must be true. Where A is false, B must be true and so $A \lor B$ must be true. $A \lor \neg A$ is a tautology, and because $A \lor B$ follows from it, $A \lor B$ must also be a tautology.
+    \item There are a number of languages with only two operators that are equivalent to truth-functional logic. Show that it is sufficient to have only the negation (¬) and the conditional (→) by writing sentences (containing only the operators ¬ and →) that are logically equivalent to the following: (M 46-7)
+          \begin{itemize}
+              \item $A \lor B$
+              \item $A \land B$
+              \item $A \leftrightarrow B$
+          \end{itemize}
+          $A \lor B$ is true where A is true or where B is true. $A \to B$ is true where A is false or where B is true. Therefore, $A \lor B$ is equivalent to $\neg A \to B$.\\
+          $A \land B$ can be found using DeMorgan's Law. $A \land B$ is equivalent to $\neg \neg(A \land B)$, which is in turn equivalent to $\neg(\neg A \lor \neg B)$. This can be rewritten using the definition for $\lor$ above to get $\neg (A \to \neg B)$.\\
+          $A \leftrightarrow B$ is defined as $(A \to B) \land (B \to A)$. Using the definition above, this can be rewritten as $\neg ((A \to B) \to \neg (B \to A))$.
+    \item Show that there is a language containing only two truth-functional operators, the negation ($\neg$) and the disjunction ($\lor$), that is equivalent to truth-functional logic. (M 47)\\
+          By the same logic as above, $A \to B$ can be written as $\neg A \lor B$.\\
+          Again using DeMorgan's Law, $A \land B$ can be written as $\neg(\neg A \lor \neg B)$.\\
+          $A \leftrightarrow B$ is defined as $(A \to B) \land (B \to A)$, which can be rewritten as $\neg (\neg (\neg A \lor B) \lor \neg (\neg B \lor A))$.
 \end{enumerate}
 \end{document}
