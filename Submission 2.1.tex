@@ -46,6 +46,8 @@
             n: NSYNC\\
             A: is the best band\\
             $An$
+            \textit{Update: "best band" is exclusive.}\\
+            $An  \land \neg \exists x (x \neq n \land Ax)$
       \item Somebody loves everybody.\\
             Axy: x loves y\\
             $\exists x \forall y (Axy)$
@@ -68,7 +70,7 @@
             Px: x is a pig\\
             $\exists x \exists y (Px \land Py \land (x \neq y))$
       \item There are exactly two pigs.\\
-            $\exists x \exists y \exists z (Px \land Py \land x \neq y \land ((z \neq x \land z \neq y) \to \neg Pz))$
+            $\exists x \exists y \forall z (Px \land Py \land x \neq y \land ((z \neq x \land z \neq y) \to \neg Pz))$
       \item There are at most two pigs.\\ 
             $\neg \exists x \exists y \exists z (Px \land Py \land Pz \land (x \neq y \land x \neq z \land y \neq z))$
             \textit{(there are not 3 unique pigs)}
