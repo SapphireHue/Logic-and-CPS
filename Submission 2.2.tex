@@ -1,0 +1,177 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage[a4paper, margin=.5in]{geometry}
+\usepackage[table]{xcolor}
+
+\title{Submission 2.1}
+% \author{Saffron Liu}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+      For problems 4-12:
+\end{flushleft}
+\begin{enumerate}[(a)]
+      \item \textit{Translate the argument into quantificational logic. Be sure to delineate the extensions you give to predicates and names, and write the argument (now in quantificational logic) in standard form.}
+      \item \textit{Claim whether the argument is valid or sound. In some cases, soundness will be difficult to determine, so “soundness is difficult to determine” is an appropriate answer.}
+      \item \textit{Prove that the argument is valid or invalid (as appropriate) with an informal proof.}
+      \item \textit{Prove that the argument is valid (if applicable) with a proof by natural deduction.}
+\end{enumerate}
+
+\begin{enumerate}
+      \setcounter{enumi}{3}
+      \item Everything has a cause. Therefore something is the cause of everything. (Some people think St. Thomas Aquinas advocated this.) (B 183)
+            \begin{enumerate}
+                  \item Cxy: x is the cause of y\\
+
+                        $\forall x \exists y(Cyx)$\\
+                        \rule{15em}{.5pt}\\
+                        $\exists y \forall x(Cyx)$
+                  \item This argument is invalid, and therefore unsound.
+                        % Actually this one might be valid?
+                  \item Although each thing may have a cause, they may not be the same cause. Therefore, it does not follow that all things share the same cause. For example, if A is caused by A, B is caused by A, C is caused by D, and D is caused by A, the premise is satisfied, but the conclusion is not.
+            \end{enumerate}
+      \item Fred hates everyone who hates Al. Al hates everyone. So Al and Fred hate each other. (B213)
+            \begin{enumerate}
+                  \item Hxy: x hates y\\
+                        a: Al\\
+                        f: Fred\\
+
+                        $\forall x(Hax)$\\
+                        $\forall y(Hya \to Hfy)$\\
+                        \rule{15em}{.5pt}\\
+                        $Haf \land Hfa$
+                  \item This argument is valid. Soundness is difficult to determine.
+            \end{enumerate}
+      \item All insects in this house are large and hostile. Some insects in this house are impervious to pesticides. Thus, some large, hostile insects are impervious to pesticides. (B 213)
+            \begin{enumerate}
+                  \item Lx: x is large\\
+                        Hx: x is hostile\\
+                        Px: x is impervious to pesticides\\
+
+                        $\forall x(Lx \land Hx)$\\
+                        $\exists x(Px)$\\
+                        \rule{15em}{.5pt}\\
+                        $\exists x(Lx \land Hx \land Px)$
+                  \item This argument is valid and (unfortunately) quite likely sound.
+            \end{enumerate}
+      \item Some students cannot succeed at the university. All students who are bright and mature can succeed. It follows that some students are either not bright or immature. (B 213)
+            \begin{enumerate}
+                  \item Sx: x can succeed\\
+                        Bx: x is bright\\
+                        Mx: x is mature\\
+
+                        $\exists x(\neg Sx)$\\
+                        $\forall x((Bx \land Mx) \to Sx)$\\
+                        \rule{15em}{.5pt}\\
+                        $\exists x(\neg Bx \lor \neg Mx)$
+                  \item This argument is valid. I would argue that it's unsound.
+            \end{enumerate}
+      \item There are at least 3 pigs. So there are at least two pigs.
+            \begin{enumerate}
+                  \item Px: x is a pig\\
+                        $\exists x \exists y \exists z (Px \land Py \land Pz \land (x \neq y) \land (x \neq z) \land (y \neq z))$\\
+                        \rule{15em}{.5pt}\\
+                        $\exists x \exists y (Px \land Py \land (x \neq y))$
+                  \item This argument is valid and sound.
+            \end{enumerate}
+      \item Popeye and Olive Oyl like each other since Popeye likes everyone who likes Olive Oyl, and Olive Oyl likes everyone. (B 218)
+            \begin{enumerate}
+                  \item Lxy: x likes y\\
+                        p: Popeye\\
+                        o: Olive Oyl\\
+
+                        $\forall x(Lxo \to Lpx)$\\
+                        $\forall x(Lox)$\\
+                        \rule{15em}{.5pt}\\
+                        $Lpo \land Lop$
+                  \item This argument is valid and sound.
+            \end{enumerate}
+      \item This argument is unsound, for its conclusion is false, and no sound argument has a false conclusion. (J 49)
+            \begin{enumerate}
+                  \item U: x is unsound\\
+                        F: x has a false conclusion\\
+                        a: this argument\\
+
+                        $Fa$\\
+                        $\forall x(Fx \to Ux)$\\
+                        \rule{15em}{.5pt}\\
+                        $Ua$
+                  \item This argument is valid. Soundness is (very) difficult to determine.
+                  \item The second premise states that any argument with a false conclusion is unsound. The first premise states that "this argument" has a false conclusion, so it must follow that "this argument" is unsound.
+            \end{enumerate}
+      \item Everyone likes Mandy. Mandy likes nobody but Andy. Therefore Mandy and Andy are the same person. (B 238)
+            \begin{enumerate}
+                  \item Lxy: x likes y\\
+                        m: Mandy\\
+                        a: Andy\\
+
+                        $\forall x(Lxm)$\\
+                        $\forall x(x \neq a \to \neg Lmx)$\\
+                        \rule{15em}{.5pt}\\
+                        $m=a$
+                  \item This argument is valid and sound.
+                        % Everyone (including Mandy) likes Mandy; Mandy likes nobody except Andy. Mandy must like Mandy, so Andy must be Mandy.
+            \end{enumerate}
+      \item Everyone is afraid of Mr. Hyde. Mr. Hyde is afraid only of Dr. Jekyll. Therefore, Dr. Jekyll is Mr. Hyde. (B 234)
+            \begin{enumerate}
+                  \item Axy: x is afraid of y\\
+                        h: Mr. Hyde\\
+                        j: Dr. Jekyll\\
+
+                        $\forall x(Axh)$\\
+                        $\forall x (x \neq j \to \neg Ahx)$\\
+                        \rule{15em}{.5pt}\\
+                        $h=j$
+                  \item This argument is valid and sound.
+            \end{enumerate}
+\end{enumerate}
+
+\begin{flushleft}
+      For problems 13-15:
+\end{flushleft}
+\begin{enumerate}[(a)]
+      \item \textit{Claim whether the argument is valid or invalid.}
+      \item \textit{Prove that the argument is valid or invalid (as appropriate) with an informal proof.}
+\end{enumerate}
+
+\begin{enumerate}
+      \setcounter{enumi}{12}
+      \item \begin{tabular}{c}
+                  $\forall x(Fx \to Gx)$ \\
+                  $\forall x(Fx \to Hx)$ \\
+                  \hline
+                  $\forall x(Gx \to Hx)$
+            \end{tabular}
+            (B 204)
+
+            \begin{enumerate}
+                  \item The argument is invalid.
+                  \item Let y be an instance of x such that Fy is false, Gy is true, and Hy is false. In this case, both $Fy \to Gy$ and $Fy \to Hx$ are true, but $Gy \to Hy$ is not. This means that the conclusion is not true for all x.
+            \end{enumerate}
+      \item \begin{tabular}{c}
+                  $\forall x(Fx \to Gx)$ \\
+                  \hline
+                  $\forall x(\neg Gx \to \neg Fx)$
+            \end{tabular}
+            (B 204)
+            \begin{enumerate}
+                  \item This argument is valid.
+                  \item This is a contrapositive.
+            \end{enumerate}
+      \item \begin{tabular}{c}
+                  $\neg \exists x(Fx \land Gx)$ \\
+                  $\forall x(Gx \to Hx)$        \\
+                  \hline
+                  $\forall x(Fx \to \neg Hx)$
+            \end{tabular}
+            (B 204)
+            \begin{enumerate}
+                  \item This argument is invalid.
+                  \item Let y be an instance of x such that Fy is true and Hy is true. Since Fy is true and there is no x such that both Fx and Gx are true, Gy must be false. However, this does not imply anything abuot Hy. Since this case does not pose any contradictions but renders the conclusion false, the argument is invalid.
+            \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
