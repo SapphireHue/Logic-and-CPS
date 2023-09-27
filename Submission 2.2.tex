@@ -9,6 +9,40 @@
 \begin{document}
 \maketitle
 
+\begin{enumerate}
+      \item In school, a curve is a function, usually from [0, 100] to [0, 100]. The following are some made-up definitions:
+            \begin{itemize}
+                  \item A curve f is called fair if $\forall x \forall y (x \geq y \to f(x) \geq f(y))$.
+                  \item A curve f is called totally unfair if $\forall x \forall y (x > y \to f(x) < f(y))$.
+                  \item A curve f is called progressive if $\forall x \forall y (x < y \to f(x) - x > f(y) - y)$.
+            \end{itemize}
+            \begin{enumerate}
+                  \item Say (both in English and in Quantificational Logic) what it means for a curve to be unfair.\\
+                        A curve is unfair if a grade x greater than or equal to a grade y before the curve ends up lower than grade y after the curve. $\exists x \exists y \neg(x \geq y \to f(x) \geq f(y))$
+                  \item Say (both in English and in Quantificational Logic) what it means for a curve to be not totally unfair.\\
+                        A curve is not totally unfair if a score x greater than score y does not end up lower after the curve. $\exists x \exists y \neg(x > y \to f(x) < f(y))$
+                  \item Conjure an example of a curve that is unfair but not totally unfair.\\
+                        An example of this would be f(x) = (x \% 2) * 100. This is not fair, because when a = 2 and b = 1 (i.e. $a \geq b$), f(a) = 0 and f(b) = 100 (i.e. $f(a) < f(b)$). However, this curve is also not totally unfair, because when a = 3 and b = 2 (i.e. $a > b$), f(a) = 100 and f(b) = 0 (i.e. $f(a) \geq f(b)$).
+                  \item Say in English what it means for a curve to be progressive. Say (both in English and in Quantificational Logic) what it means for a curve to be not progressive.\\
+                        A curve is progressive if the difference between the post- and pre- curve scores is higher for lower scores (for most intents and purposes, if lower scores are "bumped" more than higher scores.)\\
+                        A curve is not progressive if there is a case where a lower score is bumped the same amount or less than a higher score. $\exists x \exists y (x < y \to f(x) - x \leq f(y) - y)$
+                  \item Classify the curve “everyone gets 5 points” as fair or unfair and progressive or not progressive.\\
+                        This curve is fair but not progressive.
+            \end{enumerate}
+      \item The limit of a function, f(x), at a point c is l if and only if for all $\varepsilon > 0$ there is a $\delta > 0$
+            such that, for all x, if the distance between x and c is less than $\delta$, then the distance between
+            f(x) and l is less than $\varepsilon$. Suppose f is a function, and the limit of f at 0 is not 1. Given
+            this definition of a limit, how can you prove that the limit of f at 0 is not 1? That is, what
+            evidence would you need to provide in order to prove that the limit of f at 0 is not 1?\\
+            You would need to find an $\varepsilon$ such that for all $\delta$, the distance between x and 1 being less than $\delta$ does not guarantee that the distance between f(x) and 1 will be less than $\varepsilon$.
+      \item A function, f, is continuous at a point c if and only if for all sequences of real numbers,
+      $x_{n}$, that converge to c, the sequence $f(x_{n})$ converges to f(c). Suppose f is a function, and
+      f (0) = 1. Given this definition of pointwise continuity above, what would you need to do
+      to prove that f is discontinuous at 0? That is, what evidence would you need to provide in
+      order to prove that f is discontinuous at 0?\\
+      You would need to find a sequence of real numbers $x_{n}$ that converges to 0 but where $f(x_{n})$ does not converge to 1.
+\end{enumerate}
+
 \begin{flushleft}
       For problems 4-12:
 \end{flushleft}
