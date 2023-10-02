@@ -36,11 +36,11 @@
             evidence would you need to provide in order to prove that the limit of f at 0 is not 1?\\
             You would need to find an $\varepsilon$ such that for all $\delta$, the distance between x and 1 being less than $\delta$ does not guarantee that the distance between f(x) and 1 will be less than $\varepsilon$.
       \item A function, f, is continuous at a point c if and only if for all sequences of real numbers,
-      $x_{n}$, that converge to c, the sequence $f(x_{n})$ converges to f(c). Suppose f is a function, and
-      f (0) = 1. Given this definition of pointwise continuity above, what would you need to do
-      to prove that f is discontinuous at 0? That is, what evidence would you need to provide in
-      order to prove that f is discontinuous at 0?\\
-      You would need to find a sequence of real numbers $x_{n}$ that converges to 0 but where $f(x_{n})$ does not converge to 1.
+            $x_{n}$, that converge to c, the sequence $f(x_{n})$ converges to f(c). Suppose f is a function, and
+            f (0) = 1. Given this definition of pointwise continuity above, what would you need to do
+            to prove that f is discontinuous at 0? That is, what evidence would you need to provide in
+            order to prove that f is discontinuous at 0?\\
+            You would need to find a sequence of real numbers $x_{n}$ that converges to 0 but where $f(x_{n})$ does not converge to 1.
 \end{enumerate}
 
 \begin{flushleft}
@@ -63,8 +63,8 @@
                         \rule{15em}{.5pt}\\
                         $\exists y \forall x(Cyx)$
                   \item This argument is invalid, and therefore unsound.
-                        % Actually this one might be valid?
-                  \item Although each thing may have a cause, they may not be the same cause. Therefore, it does not follow that all things share the same cause. For example, if A is caused by A, B is caused by A, C is caused by D, and D is caused by A, the premise is satisfied, but the conclusion is not.
+                  \item Although each thing may have a cause, they may not be the same cause. Therefore, it does not follow that all things share the same cause. For example, if A is caused by A, and B is caused by B, there is not a single thing that causes both A and B.
+                  \item Because the argument is invalid, it cannot be proven with natural deduction.
             \end{enumerate}
       \item Fred hates everyone who hates Al. Al hates everyone. So Al and Fred hate each other. (B213)
             \begin{enumerate}
@@ -77,6 +77,16 @@
                         \rule{15em}{.5pt}\\
                         $Haf \land Hfa$
                   \item This argument is valid. Soundness is difficult to determine.
+                        \setcounter{enumii}{3}
+                  \item \begin{enumerate}
+                              \item $\forall x(Hax)$ (Premise 1)
+                              \item $\forall y(Hya \to Hfy)$ (Premise 2)
+                              \item $Haf$ (UI, i)
+                              \item $Haa$ (UI, i)
+                              \item $Haa \to Hfa$ (UI, ii)
+                              \item $Hfa$ (MP, v, iv)
+                              \item $Haf \land Hfa$ (Conj, iii, vi)
+                        \end{enumerate}
             \end{enumerate}
       \item All insects in this house are large and hostile. Some insects in this house are impervious to pesticides. Thus, some large, hostile insects are impervious to pesticides. (B 213)
             \begin{enumerate}
@@ -89,6 +99,15 @@
                         \rule{15em}{.5pt}\\
                         $\exists x(Lx \land Hx \land Px)$
                   \item This argument is valid and (unfortunately) quite likely sound.
+                        \setcounter{enumii}{3}
+                  \item \begin{enumerate}
+                              \item $\forall x(Lx \land Hx)$ (Premise 1)
+                              \item $\exists x(Px)$ (Premise 2)
+                              \item $Pa$ (EI, ii)
+                              \item $La \land Ha$ (UI, i)
+                              \item $La \land Ha \land Pa$ (Conj, iii, iv)
+                              \item $\exists x(Lx \land Hx \land Px)$ (EG, v)
+                        \end{enumerate}
             \end{enumerate}
       \item Some students cannot succeed at the university. All students who are bright and mature can succeed. It follows that some students are either not bright or immature. (B 213)
             \begin{enumerate}
@@ -101,6 +120,17 @@
                         \rule{15em}{.5pt}\\
                         $\exists x(\neg Bx \lor \neg Mx)$
                   \item This argument is valid. I would argue that it's unsound.
+                        \setcounter{enumii}{3}
+                  \item \begin{enumerate}
+                              \item $\exists x(\neg Sx)$ (Premise 1)
+                              \item $\forall x((Bx \land Mx) \to Sx)$ (Premise 2)
+                              \item $\neg Sa$ (EI, i)
+                              \item $(Ba \land Ma) \to Sa$ (UI, ii)
+                              \item $\neg Sa \to \neg (Ba \land Ma)$ (ContraPos, iv)
+                              \item $\neg Sa \to (\neg Ba \lor \neg Ma)$ (DeM, v)
+                              \item $\neg Ba \lor \neg Ma$ (MP, iii, vi)
+                              \item $\exists x(\neg Bx \lor \neg Mx)$ (EG, vii)
+                        \end{enumerate}
             \end{enumerate}
       \item There are at least 3 pigs. So there are at least two pigs.
             \begin{enumerate}
@@ -109,6 +139,18 @@
                         \rule{15em}{.5pt}\\
                         $\exists x \exists y (Px \land Py \land (x \neq y))$
                   \item This argument is valid and sound.
+                        \setcounter{enumii}{3}
+                  \item \begin{enumerate}
+                              \item $\exists x \exists y \exists z (Px \land Py \land Pz \land (x \neq y) \land (x \neq z) \land (y \neq z))$ (Premise 1)
+                              \item $\exists y \exists z (Pa \land Py \land Pz \land (a \neq y) \land (a \neq z) \land (y \neq z))$ (EI, i)
+                              \item $\exists z (Pa \land Pb \land Pz \land (a \neq b) \land (a \neq z) \land (b \neq z))$ (EI, ii)
+                              \item $Pa \land Pb \land Pc \land (a \neq b) \land (a \neq c) \land (b \neq c)$ (EI, iii)
+                              \item $Pa \land Pb \land Pc \land (a \neq b) \land (a \neq c)$ (Simp, iv)
+                              \item $Pa \land Pb \land Pc \land (a \neq b)$ (Simp, v)
+                              \item $Pa \land Pb \land (a \neq b)$ (Simp, vi)
+                              \item $\exists y(Pa \land Py \land (a \neq y))$ (EG, vii)
+                              \item $\exists x \exists y(Px \land Py \land (x \neq y))$ (EG, viii)
+                        \end{enumerate}
             \end{enumerate}
       \item Popeye and Olive Oyl like each other since Popeye likes everyone who likes Olive Oyl, and Olive Oyl likes everyone. (B 218)
             \begin{enumerate}
@@ -121,6 +163,16 @@
                         \rule{15em}{.5pt}\\
                         $Lpo \land Lop$
                   \item This argument is valid and sound.
+                        \setcounter{enumii}{3}
+                  \item \begin{enumerate}
+                              \item $\forall x(Lxo \to Lpx)$ (Premise 1)
+                              \item $\forall x(Lox)$ (Premise 2)
+                              \item $Loo \to Lpo$ (UI, i)
+                              \item $Loo$ (UI, ii)
+                              \item $Lpo$ (MP, iii, iv)
+                              \item $Lop$ (UI, ii)
+                              \item $Lpo \land Lop$ (Conj, v, vi)
+                        \end{enumerate}
             \end{enumerate}
       \item This argument is unsound, for its conclusion is false, and no sound argument has a false conclusion. (J 49)
             \begin{enumerate}
@@ -134,6 +186,12 @@
                         $Ua$
                   \item This argument is valid. Soundness is (very) difficult to determine.
                   \item The second premise states that any argument with a false conclusion is unsound. The first premise states that "this argument" has a false conclusion, so it must follow that "this argument" is unsound.
+                  \item \begin{enumerate}
+                              \item $Fa$ (Premise 1)
+                              \item $\forall x(Fx \to Ux)$ (Premise 2)
+                              \item $Fa \to Ua$ (UI, ii)
+                              \item $Ua$ (MP, iii, i)
+                        \end{enumerate}
             \end{enumerate}
       \item Everyone likes Mandy. Mandy likes nobody but Andy. Therefore Mandy and Andy are the same person. (B 238)
             \begin{enumerate}
@@ -146,6 +204,15 @@
                         \rule{15em}{.5pt}\\
                         $m=a$
                   \item This argument is valid and sound.
+                        \setcounter{enumii}{3}
+                  \item \begin{enumerate}
+                              \item $\forall x(Lxm)$ (Premise 1)
+                              \item $\forall x(x \neq a \to \neg Lmx)$ (Premise 2)
+                              \item $Lmm$ (UI, i)
+                              \item $m \neq a \to \neg Lmm$ (UI, ii)
+                              \item $Lmm \to m = a$ (ContraPost, iv)
+                              \item $m = a$ (MP, v, iii)
+                        \end{enumerate}
                         % Everyone (including Mandy) likes Mandy; Mandy likes nobody except Andy. Mandy must like Mandy, so Andy must be Mandy.
             \end{enumerate}
       \item Everyone is afraid of Mr. Hyde. Mr. Hyde is afraid only of Dr. Jekyll. Therefore, Dr. Jekyll is Mr. Hyde. (B 234)
@@ -159,6 +226,15 @@
                         \rule{15em}{.5pt}\\
                         $h=j$
                   \item This argument is valid and sound.
+                        \setcounter{enumii}{3}
+                  \item \begin{enumerate}
+                              \item $\forall x(Axh)$ (Premise 1)
+                              \item $\forall x (x \neq j \to \neg Ahx)$ (Premise 2)
+                              \item $Ahh$ (UI, i)
+                              \item $h \neq j \to \neg Ahh$ (UI, ii)
+                              \item $Ahh \to h = j$ (ContraPos, iv)
+                              \item $h = j$ (MP, v, iii)
+                        \end{enumerate}
             \end{enumerate}
 \end{enumerate}
 
