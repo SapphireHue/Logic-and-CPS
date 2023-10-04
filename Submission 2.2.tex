@@ -37,7 +37,7 @@
             You would need to find an $\varepsilon$ such that for all $\delta$, the distance between x and 1 being less than $\delta$ does not guarantee that the distance between f(x) and 1 will be less than $\varepsilon$.
       \item A function, f, is continuous at a point c if and only if for all sequences of real numbers,
             $x_{n}$, that converge to c, the sequence $f(x_{n})$ converges to f(c). Suppose f is a function, and
-            f (0) = 1. Given this definition of pointwise continuity above, what would you need to do
+            f(0) = 1. Given this definition of pointwise continuity above, what would you need to do
             to prove that f is discontinuous at 0? That is, what evidence would you need to provide in
             order to prove that f is discontinuous at 0?\\
             You would need to find a sequence of real numbers $x_{n}$ that converges to 0 but where $f(x_{n})$ does not converge to 1.
@@ -200,18 +200,19 @@
                         a: Andy\\
 
                         $\forall x(Lxm)$\\
-                        $\forall x(x \neq a \to \neg Lmx)$\\
+                        $\forall x(x \neq a \to \neg Lmx) \land Lma$\\
                         \rule{15em}{.5pt}\\
                         $m=a$
                   \item This argument is valid and sound.
                         \setcounter{enumii}{3}
                   \item \begin{enumerate}
                               \item $\forall x(Lxm)$ (Premise 1)
-                              \item $\forall x(x \neq a \to \neg Lmx)$ (Premise 2)
+                              \item $\forall x(x \neq a \to \neg Lmx) \land Lma$ (Premise 2)
+                              \item $\forall x(x \neq a \to \neg Lmx)$ (Simp, ii)
                               \item $Lmm$ (UI, i)
-                              \item $m \neq a \to \neg Lmm$ (UI, ii)
-                              \item $Lmm \to m = a$ (ContraPost, iv)
-                              \item $m = a$ (MP, v, iii)
+                              \item $m \neq a \to \neg Lmm$ (UI, iii)
+                              \item $Lmm \to m = a$ (ContraPost, v)
+                              \item $m = a$ (MP, vi, iv)
                         \end{enumerate}
                         % Everyone (including Mandy) likes Mandy; Mandy likes nobody except Andy. Mandy must like Mandy, so Andy must be Mandy.
             \end{enumerate}
