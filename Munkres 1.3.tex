@@ -10,14 +10,32 @@
 \maketitle
 
 \begin{enumerate}
-    \item Define two points $(x_{0}, y_{0})$ and $(x_{1}, y_{1})$ of the plane to be equivalent if $y_{0} - x_{0}^{2} = y_{1} - x_{1}^{2}$. Check that this is an equivalence relation and describe the equivalence classes.\\
-    Reflexivity: Let $(x_{0}, y_{0})$. $y_{0} - x_{0}^{2} = y_{0} - x_{0}^{2}$ so $(x_{0}, y_{0}) \sim (x_{0}, y_{0})$ for every $(x_{0}, y_{0})$.\\
-    Symmetry: Let $(x_{0}, y_{0})$ and $(x_{1}, y_{1})$ such that $(x_{0}, y_{0}) \sim (x_{1}, y_{1})$. $y_{0} - x_{0}^{2} = y_{1} - x_{1}^{2}$. Equality is symmetric, so $y_{1} - x_{1}^{2} = y_{0} - x_{0}^{2}$, so $(x_{1}, y_{1}) \sim (x_{0}, y_{0})$. Thus, $(x_{0}, y_{0}) \sim (x_{1}, y_{1}) \Rightarrow (x_{1}, y_{1}) \sim (x_{0}, y_{0})$.\\
-    Transitivity: Let $(x_{0}, y_{0})$, $(x_{1}, y_{1})$, and $(x_{2}, y_{2})$ such that $(x_{0}, y_{0}) \sim (x_{1}, y_{1})$ and $(x_{1}, y_{1}) \sim (x_{2}, y_{2})$. $y_{0} - x_{0}^{2} = y_{1} - x_{1}^{2}$ and $y_{1} - x_{1}^{2} = y_{2} - x_{2}^{2}$. By the transitive property of equality, $y_{0} - x_{0}^{2} = y_{2} - x_{2}^{2}$, so $(x_{0}, y_{0}) \sim (x_{2}, y_{2})$. Thus $((x_{0}, y_{0}) \sim (x_{1}, y_{1}) \land (x_{1}, y_{1}) \sim (x_{2}, y_{2})) \Rightarrow (x_{0}, y_{0}) \sim (x_{2}, y_{2})$.
-    The relation is satisfies all three properties of an equivalence relation.\\
+      \item Define two points $(x_{0}, y_{0})$ and $(x_{1}, y_{1})$ of the plane to be equivalent if $y_{0} - x_{0}^{2} = y_{1} - x_{1}^{2}$. Check that this is an equivalence relation and describe the equivalence classes.\\
+            Reflexivity: Let $(x_{0}, y_{0})$. $y_{0} - x_{0}^{2} = y_{0} - x_{0}^{2}$ so $(x_{0}, y_{0}) \sim (x_{0}, y_{0})$ for every $(x_{0}, y_{0})$.\\
+            Symmetry: Let $(x_{0}, y_{0})$ and $(x_{1}, y_{1})$ such that $(x_{0}, y_{0}) \sim (x_{1}, y_{1})$. $y_{0} - x_{0}^{2} = y_{1} - x_{1}^{2}$. Equality is symmetric, so $y_{1} - x_{1}^{2} = y_{0} - x_{0}^{2}$, so $(x_{1}, y_{1}) \sim (x_{0}, y_{0})$. Thus, $(x_{0}, y_{0}) \sim (x_{1}, y_{1}) \Rightarrow (x_{1}, y_{1}) \sim (x_{0}, y_{0})$.\\
+            Transitivity: Let $(x_{0}, y_{0})$, $(x_{1}, y_{1})$, and $(x_{2}, y_{2})$ such that $(x_{0}, y_{0}) \sim (x_{1}, y_{1})$ and $(x_{1}, y_{1}) \sim (x_{2}, y_{2})$. $y_{0} - x_{0}^{2} = y_{1} - x_{1}^{2}$ and $y_{1} - x_{1}^{2} = y_{2} - x_{2}^{2}$. By the transitive property of equality, $y_{0} - x_{0}^{2} = y_{2} - x_{2}^{2}$, so $(x_{0}, y_{0}) \sim (x_{2}, y_{2})$. Thus $((x_{0}, y_{0}) \sim (x_{1}, y_{1}) \land (x_{1}, y_{1}) \sim (x_{2}, y_{2})) \Rightarrow (x_{0}, y_{0}) \sim (x_{2}, y_{2})$.\\
+            The relation is satisfies all three properties of an equivalence relation.\\
 
-    An equivalence class of this relation determined by an element $(x_{0}, y_{0})$ is the set of all points $(x, y)$ such that $y-x^{2} = y_{0} - x_{0}^2$. In other words, let $a = y_{0} - x_{0}^2$. For any value of $x$, $(x, x^{2} + a)$ is in the equivalence class. 
-    Note that for any point $(x, y)$ in the equivalence class, $(-x, y)$ is also in the equivalence class.
-    \item 
+            An equivalence class of this relation determined by an element $(x_{0}, y_{0})$ is the set of all points $(x, y)$ such that $y-x^{2} = y_{0} - x_{0}^2$. In other words, let $a = y_{0} - x_{0}^2$. For any value of $x$, $(x, x^{2} + a)$ is in the equivalence class.
+            Note that for any point $(x, y)$ in the equivalence class, $(-x, y)$ is also in the equivalence class.
+      \item Let $C$ be a relation on a set $A$. If $A_{0} \subset A$, define the \textit{\textbf{restriction}} of $C$ to $A_{0}$ to be the relation $C \cap (A_{0} \times A_{0})$. Show that the restriction of an equivalence relation is an equivalence relation.\\
+            Define $C_{A_{0}}$ to be the restriction of $C$ to $A_{0}$.\\
+            Lemma: $xC_{A_{0}}y \Rightarrow xCy$.\\
+            $xC_{A_{0}}y \iff (x, y) \in C \cap (A_{0} \times A_{0}) \iff (x, y) \in C \land (x, y) \in (A_{0} \times A_{0})$. Thus, by simplifying, $(x, y) \in C \iff xCy$.\\
+
+            Reflexivity: Let $x \in A_{0}$ (and thus also $x \in A$). $x \in A$, so $xCx$, so $(x, x) \in C$. $x \in A_{0}$, so $(x, x) \in (A_{0} \times A_{0})$. $(x, x) \in C \land (x, x) \in (A_{0} \times A_{0})$, so $(x, x) \in C \cap (A_{0} \times A_{0})$, so $xC_{A_{0}}x$ for every $x \in A_{0}$\\
+            Symmetry: Let $x, y \in A_{0}$ such that $xC_{A_{0}}y$. $xC_{A_{0}}y \Rightarrow xCy$, so $yCx$ as well. Thus $(y, x) \in C$. $x \in A_{0} \land y \in A_{0}$, so $(y, x) \in (A_{0} \times A_{0})$ too. $(y, x) \in C \cap (A_{0} \times A_{0})$. Therefore, $xC_{A_{0}}y \Rightarrow yC_{A_{0}}x$.\\
+            Transitivity: Let $x, y, z \in A_{0}$ such that $xC_{A_{0}}y$ and $yC_{A_{0}}z$. $xCy \land yCz$, so $xCz$, so $(x, z) \in C$. $x \in A_{0} \land z \in A_{0}$, so $(x, z) \in (A_{0} \times A_{0})$. Thus, $(x, z) \in C_{A_{0}}$. Therefore, $xC_{A_{0}}y \land yC_{A_{0}}z \Rightarrow xC_{A_{0}}z$.
+      \item Here is a “proof” that every relation $C$ that is both symmetric and transitive is also reflexive: “Since $C$ is symmetric, $aCb$ implies $bCa$. Since $C$ is transitive, $aCb$ and $bCa$ together imply $aCa$, as desired.” Find the flaw in this argument.\\
+            The argument simplifies to $aCb \Rightarrow aCa$, meaning there could be a case where $aCb$ and $aCa$ are both false. Reflexivity requires $aCa$ to be true in all cases, but this argument depends on $aCb$.
+      \item Let $f:A \to B$ be a surjective function. Let us define a relation on $A$ by setting $a_{0} \sim a_{1}$ if $f(a_{0}) = f(a_{1})$.
+            \begin{enumerate}
+                  \item Show that this is an equivalence relation.\\
+                        Reflexivity: Let $a \in A$. $f(a) = f(a)$ so $a \sim a$ for every $a \in A$.\\
+                        Symmetry: Let $a_{0}, a_{1} \in A$ such that $a_{0} \sim a_{1}$.$f(a_{0}) = f(a_{1})$, so $f(a_{1}) = f(a_{0})$, so $a_{1} \sim a_{0}$. Thus, $a_{0} \sim a_{1} \Rightarrow a_{1} \sim a_{0}$.\\
+                        Transitivity: Let $a_{0}, a_{1}, a_{2} \in A$ such that $a_{0} \sim a_{1} \land a_{1} \sim a_{2}$. $f(a_{0}) = f(a_{1}) \land f(a_{1}) = f(a_{2})$, so $f(a_{0}) = f(a_{2})$, so $a_{0} \sim a_{2}$. Thus, $(a_{0} \sim a_{1} \land a_{1} \sim a_{2}) \Rightarrow a_{0} \sim a_{2}$.
+                  \item Let $A^{*}$ be the set of equivalence classes. Show there is a bijective correspondence of $A^{*}$ with B.\\
+                        Let $x \in A$. Let $E = \{y \mid y \sim x\}$ be the equivalence class determined by $x$. $E = \{y \mid f(x) = f(y)\}$. Let $b = f(x)$; $E = \{y \mid f(y) = b\}$. Thus, for every equivalence class in $A^{*}$, there is some $b \in B$ that it corresponds to. Because $f$ is surjective, there is some $a \in A$ such that $f(a) = b$ for every $b \in B$, so every $b \in B$ has a corresponding equivalence class (again defined as $E = \{y \mid f(y) = b\}$). 
+            \end{enumerate}
 \end{enumerate}
 \end{document}
