@@ -27,7 +27,18 @@
             Symmetry: Let $x, y \in A_{0}$ such that $xC_{A_{0}}y$. $xC_{A_{0}}y \Rightarrow xCy$, so $yCx$ as well. Thus $(y, x) \in C$. $x \in A_{0} \land y \in A_{0}$, so $(y, x) \in (A_{0} \times A_{0})$ too. $(y, x) \in C \cap (A_{0} \times A_{0})$. Therefore, $xC_{A_{0}}y \Rightarrow yC_{A_{0}}x$.\\
             Transitivity: Let $x, y, z \in A_{0}$ such that $xC_{A_{0}}y$ and $yC_{A_{0}}z$. $xCy \land yCz$, so $xCz$, so $(x, z) \in C$. $x \in A_{0} \land z \in A_{0}$, so $(x, z) \in (A_{0} \times A_{0})$. Thus, $(x, z) \in C_{A_{0}}$. Therefore, $xC_{A_{0}}y \land yC_{A_{0}}z \Rightarrow xC_{A_{0}}z$.
       \item Here is a “proof” that every relation $C$ that is both symmetric and transitive is also reflexive: “Since $C$ is symmetric, $aCb$ implies $bCa$. Since $C$ is transitive, $aCb$ and $bCa$ together imply $aCa$, as desired.” Find the flaw in this argument.\\
-            The argument simplifies to $aCb \Rightarrow aCa$, meaning there could be a case where $aCb$ and $aCa$ are both false. Reflexivity requires $aCa$ to be true in all cases, but this argument depends on $aCb$.
+            The argument can be rewritten as:\\
+            $aCb \Rightarrow bCa$\\
+            $aCb \land bCa \Rightarrow aCa$\\
+            \rule{5em}{.5pt}\\
+            $aCa$\\
+            Which simplifies to:\\
+            $aCb \Rightarrow aCa$\\
+            \rule{5em}{.5pt}\\
+            $aCa$\\
+            A counterexample can be found in the case where $aCb$ and $aCa$ are both false.\\
+            More specifically: Let $A = \{1, 2\}$. Thus, $A \times A = \{(1, 1), (1, 2), (2, 1), (2, 2)\}$. Let $C \subset A$ be $\{(1, 1)\}$. The premise $2C1 \Rightarrow 2C2$ is true, but $2C2$ is false and $C$ is not reflexive.
+
       \item Let $f:A \to B$ be a surjective function. Let us define a relation on $A$ by setting $a_{0} \sim a_{1}$ if $f(a_{0}) = f(a_{1})$.
             \begin{enumerate}
                   \item Show that this is an equivalence relation.\\
@@ -35,7 +46,10 @@
                         Symmetry: Let $a_{0}, a_{1} \in A$ such that $a_{0} \sim a_{1}$.$f(a_{0}) = f(a_{1})$, so $f(a_{1}) = f(a_{0})$, so $a_{1} \sim a_{0}$. Thus, $a_{0} \sim a_{1} \Rightarrow a_{1} \sim a_{0}$.\\
                         Transitivity: Let $a_{0}, a_{1}, a_{2} \in A$ such that $a_{0} \sim a_{1} \land a_{1} \sim a_{2}$. $f(a_{0}) = f(a_{1}) \land f(a_{1}) = f(a_{2})$, so $f(a_{0}) = f(a_{2})$, so $a_{0} \sim a_{2}$. Thus, $(a_{0} \sim a_{1} \land a_{1} \sim a_{2}) \Rightarrow a_{0} \sim a_{2}$.
                   \item Let $A^{*}$ be the set of equivalence classes. Show there is a bijective correspondence of $A^{*}$ with B.\\
-                        Let $x \in A$. Let $E = \{y \mid y \sim x\}$ be the equivalence class determined by $x$. $E = \{y \mid f(x) = f(y)\}$. Let $b = f(x)$; $E = \{y \mid f(y) = b\}$. Thus, for every equivalence class in $A^{*}$, there is some $b \in B$ that it corresponds to. Because $f$ is surjective, there is some $a \in A$ such that $f(a) = b$ for every $b \in B$, so every $b \in B$ has a corresponding equivalence class (again defined as $E = \{y \mid f(y) = b\}$). 
+                        A conceptual understanding: Let $x \in A$. Let $E = \{y \mid y \sim x\}$ be the equivalence class determined by $x$. $E = \{y \mid f(x) = f(y)\}$. Let $b = f(x)$; $E = \{y \mid f(y) = b\}$. In plain English, every equivalence class is the set of all $a \in A$ that map to a specific $b$ under $f$.\\
+                        Showing injectivity: Let $E_{1}, E_{2} \in A^{*}$ be two equivalence classes that both correspond to $b$. This means there is some $a_{1} \in E_{1}$ and some $a_{2} \in E_{2}$ such that $f(a_{1}) = b = f(a_{2})$. Thus, $f(a_{1}) = f(a_{2})$, meaning $a_{2} \in E_{1} \land a_{2} \in E_{2}$. Distinct equivalence classes are disjoint, but $E_{1}$ and $E_{2}$ overlap, so we can conclude $E_{1} = E_{2}$. Thus, $E_{1}$ corresponds to $b$ and $E_{2}$ corresponds to $b$ implies that $E_{1} = E_{2}$, showing that the correspondence from $A^{*}$ to $B$ is injective.\\
+                        Shwoing surjectivity: Let $b \in B$. $f$ is surjective, so $f(a) = b$ for at least one $a \in A$. Thus, there is a corresponding equivalence class $E = {a \mid f(a) = b} \in A^{*}$ for every $b \in B$. The correspondence from $A^{*}$ to $B$ is also surjective.\\
+                        Because the correspondence from $A^{*}$ to $B$ is both injective and surjective, it must be bijective.
             \end{enumerate}
 \end{enumerate}
 \end{document}
