@@ -1,0 +1,57 @@
+\documentclass[10pt]{article}
+\usepackage{graphicx}
+\usepackage{enumerate} % to get custom labels
+\usepackage{hyperref} % for footnotes to link and \hyperref
+\usepackage{amsmath} % to get \text in math mode
+\usepackage{amssymb} % for things like \mathcal and \mathbb
+\usepackage{xcolor} % colored text
+\usepackage{fancyhdr}
+\usepackage[a4paper, margin=1in]{geometry}
+
+\begin{document}
+\begin{center}
+    \textbf{\LaTeX{} example}
+\end{center}
+Hello
+\begin{flushright}
+    \textit{world}
+    \hrule
+\end{flushright}
+same \hfill line
+
+\begin{enumerate}[(1)] % why is the indentation fucked
+    \item words can be:
+          \begin{itemize}
+              \item \footnotesize{small} (footnote size) \footnote{speaking of footnotes...}
+              \item \large{big (Large)}
+          \end{itemize}
+    \item I can create hyperlinks to websites like \href{https://www.google.com/}{Google} or to other locations in my document (e.g., \hyperlink{a}{“more on that topic later”}).
+    \item I use \texttt{array} for stuff like this:
+          \begin{center}
+            \renewcommand{\arraystretch}{2}
+              $\begin{array}{llll} % {llll} says 4 left-aligned columns; why is vertical spacing screwy?
+                      \tan{\left( - \dfrac{11 \pi}{6}\right)} & = & \tan{\dfrac{\pi}{6}}                             & \text{since} - \dfrac{11 \pi}{6} \text{ and} \dfrac{\pi}{6} \text{ are coterminal} \\[.8em]
+                                                 & = & \dfrac{\sin{\dfrac{\pi}{6}}}{\cos{\dfrac{\pi}{6}}} &                                                                                  \\[.8em]
+                                                 & = & \dfrac{\dfrac{1}{2}}{\dfrac{\sqrt{3}}{2}}          &                                                                                  \\[.8em]
+                                                 & = & \dfrac{1}{\sqrt{3}}                              & \text{since multiplying by } \dfrac{2}{2} \text{ is legal}
+                  \end{array}$
+          \end{center}
+    \item and \texttt{tabular} for stuff like this:
+          \begin{center}
+              \begin{tabular}{|l|c|r|}
+                  \hline
+                  Lorem & ipsum        & dolor \\
+                  \S    & $\mathbb{Z}$ & \$    \\
+                  \hline
+              \end{tabular}
+          \end{center}
+    \item \textcolor{blue}{second} \quad \textcolor{red}{first}
+    \item \includegraphics[scale=.1]{chrispratt.png}
+\end{enumerate}
+\newpage
+\thispagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\hypertarget{a}{Here are those details I promised earlier.}
+\end{document}
