@@ -1,0 +1,1091 @@
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsrefs}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{arydshln}
+\usepackage{bbm}
+\usepackage{calc}
+\usepackage[labelformat=empty, font=bf]{caption}
+\usepackage{color}
+\usepackage{comment}
+% \usepackage{currfile-abspath}
+\usepackage{enumerate}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{etoolbox}
+\usepackage{eucal}
+\usepackage{fix-cm}
+\usepackage{fp}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage[procnames]{listings}
+\usepackage{lscape}
+\usepackage{marvosym}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{pgfplots}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{soul}
+\usepackage{stmaryrd}
+\usepackage{textcomp}
+\usepackage[absolute]{textpos}
+	\setlength{\TPHorizModule}{1in}
+	\setlength{\TPVertModule}{\TPHorizModule}
+	\textblockorigin{.35in}{.35in} % start everything near the top-left corner
+\usepackage{tikz}
+\usepackage{totcount}
+\usepackage{verbatim}
+\usepackage{vwcol}
+\usepackage{xstring}
+\usepackage[all]{xy}
+
+\newcommand{\ord}{\mathrm{ord}}
+
+\newcommand{\rowheisize}{.35}
+\newcommand{\rowhei}{\rule{0pt}{\rowheisize in}}
+
+\usetikzlibrary{matrix, shapes, positioning, calc, decorations.pathreplacing, shapes.geometric, arrows, fpu, fixedpointarithmetic, patterns}
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+
+\input amssym.def
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\inv}{^{-1}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\I}{\mathcal{I}}
+\DeclareMathOperator\cis{cis}
+\DeclareMathOperator\Arg{Arg}
+\DeclareMathOperator{\proj}{proj}
+
+\newcommand{\hwreport}{
+	\begin{textblock}{3}(0,0)
+		\begin{tabular}{|p{1.5in}p{1.5in}p{1.1in}|}
+		\hline
+		&&\\ [5pt]
+		Completion: \mun{.6}& Correctness: \mun{.6}& Total: \mun{.6}\\ [10pt]
+		\multicolumn{2}{|l}{List of problems I couldn't do:} & \\ [10pt]
+		\hline
+		\end{tabular}
+	\end{textblock}}
+
+\def\interior{\mathop{\rm Int}\nolimits}
+\def\num{\mathop{\#}\limits}
+\def\bd{\mathop{\rm Bd}\nolimits}
+
+\newcommand{\repindex}[4]{\left(\begin{tabular}{c|c} $#1$ & $#2$\\ $#3$ & $#4$\end{tabular}\right)}
+
+\newcounter{Total}
+\newcounter{Storage}
+
+\newcommand{\mun}[1]{\makebox[#1in]{\hrulefill}}
+\newcommand{\spac}{\vskip1.3in}
+\newcounter{abscount}
+\setcounter{abscount}{0}
+\newcommand{\abs}[1]{\ifnumless{#1}{0}{\setcounter{abscount}{-#1}}
+{\setcounter{abscount}{#1}}\arabic{abscount}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\drawpoly}[2]{
+\begin{tikzpicture}[baseline=0,scale=.7]
+\drawaxis
+
+\foreach \i in {1,...,#1}
+{\draw[ultra thick] (360/#1*\i-360/#1:\polygonsize) -- (360/#1*\i:\polygonsize);
+}
+
+\draw[ultra thick] (360/#1*#1:\polygonsize)-- (0:\polygonsize);
+
+\ifnumequal{#2}{1}
+{
+\foreach \i in {1,...,#1}
+{
+\draw[thick,fill=white] (360/#1*\i-360/#1:\polygonsize) circle[radius=\circlesize];
+\draw (360/#1*\i-360/#1:\polygonsize) node{\i};
+}}{}
+
+\end{tikzpicture}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\collen}{2in}
+\newcommand{\polygonsize}{1.75 cm}
+\newcommand{\circlesize}{.3}
+\newcommand{\vertexsize}{.1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ASSESSMENT WITH MULTIPLE VERSIONS AND ANSWER KEYS
+
+\newcommand{\Content}{ }
+\newcommand{\ver}[2]{#1}
+\newcommand{\ans}[2]{~\framebox[#1in]{\rule{0pt}{#2in}}}		% answer box
+\newcommand{\answerswitch}[1]{{\color{white}{#1}}}			% answer key (with no box)
+\newcommand{\vanswerswitch}[2]{{\color{white}{#1}} {\color{white}{#2}}}
+\newcommand{\granswerswitch}[1]{\phantom{#1}}				% graph answer key
+\newcommand{\vgranswerswitch}[2]{\phantom{#1} \phantom{#2}}
+\newcommand{\aans}[3]{\framebox{\begin{minipage}[b][#2in][c]{#1in}{\begin{center}\answerswitch{#3}\end{center}}\end{minipage}}}	% answer box with key
+\newcommand{\shaans}[3]{\framebox{\begin{minipage}[b][#2in][c]{#1in}{\begin{center}#3\end{center}}\end{minipage}}}
+\newcommand{\asch}[1]{\aans{1}{1}{\resizebox{1in}{!}{#1}}}	% used for exam reviews?  Possibly not current.
+\newcommand{\vans}[4]{\framebox{\begin{minipage}[b][#2in][c]{#1in}{\begin{center}\vanswerswitch{\ver{#3}{#4}}{\ver{\scriptsize #4}{\scriptsize #3}}\end{center}}\end{minipage}}}	% answer box with key for multiple versions
+\newcommand{\vanswer}[2]{ 							% answer key (with no box) for multiple versions
+	\vanswerswitch
+		{\ver{#1}{#2}}
+		{\ver{\scriptsize #2}{\scriptsize #1}}
+}
+\newcommand{\vgrans}[2]{ 							% graph answer key for multiple versions
+	\vgranswerswitch
+		{\ver{#1}{#2}}
+		{\ver{#2}{#1}}
+}
+
+\newcommand{\Buildit}{
+	\setcounter{PointsPossible}{0}
+	\setcounter{CalcPointsPossible}{0}
+	\setcounter{Stamps}{0}
+	\Content
+	\newpage\setcounter{page}{1} 
+	\renewcommand{\answerswitch}[1]{{\color{red}##1}} 
+	\renewcommand{\vanswerswitch}[2]{{\color{red}{##1}} {\color{blue}{##2}}}
+	\renewcommand{\granswerswitch}[1]{{\color{red}##1}}
+	\renewcommand{\vgranswerswitch}[2]{{\color{blue!40}{##2}}{\color{red}{##1}}}
+	\setcounter{PointsPossible}{0}
+	\setcounter{CalcPointsPossible}{0}
+	\setcounter{Stamps}{0}
+	\Content
+	\renewcommand{\answerswitch}[1]{{\color{white}##1}} 
+	\renewcommand{\vanswerswitch}[2]{{\color{white}{##1}} {\color{white}{##2}}}
+	\renewcommand{\granswerswitch}[1]{\phantom{##1}}
+	\renewcommand{\vgranswerswitch}[2]{\phantom{##1} \phantom{##2}}
+}
+
+\newcommand{\Buildem}{
+	\Buildit
+	\renewcommand{\ver}[2]{##2}
+	\newpage\setcounter{page}{1}
+	\Buildit
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% STAMP SHEET COMMANDS
+
+\newcommand{\StampSheetTitle}{
+\getmainfile
+\StrChar{\themainfile}{4}[\UnderscoreDot]
+\StrBetween*[1,2]{\themainfile}{\UnderscoreDot}{\UnderscoreDot}[\DayNum]
+\StrBetween*[2,1]{\themainfile}{\UnderscoreDot}{.tex}[\MessyLesson]
+\StrSubstitute[0]{\MessyLesson}{\UnderscoreDot}{ }[\AlmostLesson]
+\StrSubstitute[0]{\AlmostLesson}{&}{\&}[\Lesson]
+
+\thispagestyle{empty}
+	\iffalse	
+	\begin{textblock}{3}(3.125,-.1)
+		\begin{tabular}{|l|}
+		\hline \\
+		Note check: \underline{\hspace{.6in}} \\
+		\hline
+		\end{tabular}
+	\end{textblock}
+	\fi
+{\fontsize{15}{18}\selectfont\textbf{Day \DayNum}} \hfill \textbf{Name:} \mun{2.75} \\ [12pt]
+{\fontsize{15}{18}\selectfont\textbf{\Lesson}} \hfill \textbf{Period:} \mun{2.75} \\
+
+\vspace{-8pt}
+}
+
+\newenvironment{StampSheet}
+{\begin{tabular}{|>{\centering\arraybackslash}m{.25in}|
+m{2.5in}|
+>{\centering\arraybackslash}m{2.9in}|
+>{\centering\arraybackslash}m{.75in}|}
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\textbf{Answer}} & \multicolumn{1}{c}{\textbf{Stamp}} \\ \hline
+}
+{
+\end{tabular}
+}
+
+\newcounter{Stamps}
+\newcommand{\StampQ}[2]{
+	\addtocounter{Stamps}{1}
+	\theStamps. & #1 & #2 & \answerswitch{\Smiley}\\ \hline
+	}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%SEPARATE ANSWER KEY FOR CRYPTOLOGY PACKET
+\newcommand{\QA}[1]{}
+\newcounter{RubricPageCount}
+\setcounter{RubricPageCount}{0}
+
+\newcommand{\CPSrubric}{
+	\newpage
+	\setcounter{RubricPageCount}{\value{page}}
+	\subsection{Section \thesection{} Grading Rubric}	
+	\thispagestyle{empty}
+	\pagestyle{empty}
+	\begin{itemize}
+	\item \textbf{Completion} (50\%) \hfill \mun{.75}/50 \\
+	There are \theenumi{} problems in this section, so they are worth 	
+	{\color{red} \pgfmathtruncatemacro{\worth}{50/\theenumi}\worth{} 		points each}.
+	\item \textbf{Correctness} (30\%) \hfill \mun{.75}/30
+	\begin{multicols}{2}
+	\begin{footnotesize}
+	\renewcommand{\QA}[1]{\begin{quote}{\color{red}##1}\end{quote}}
+	\setcounter{enumi}{0}
+	\Content
+	\renewcommand{\QA}[1]{}
+	\end{footnotesize}
+	\end{multicols}
+	\item \textbf{Thoroughness} (10\%) \hfill \mun{.75}/10 \\
+	This should reflect the extent to which you justified your answers 	(i.e., ``showed your work").	
+	\item \textbf{Presentation} (10\%) \hfill \mun{.75}/10 \\
+	This number will be inversely proportional to my level of 				frustration upon trying to read your work.\\
+	\hrule \vspace{.25in}
+	\hfill \textbf{Submission grade}: \mun{.675}/100
+	\end{itemize}
+	\addtocounter{page}{-1} % FIX (account for multipage rubric)
+	\newpage
+	\setcounter{page}{\value{RubricPageCount}}
+	\pagestyle{headings}
+	}
+
+\newcommand{\LogicRubric}{
+	\newpage
+	\setcounter{RubricPageCount}{\value{page}}
+	\subsection{Section \thesection{} Grading Rubric}	
+	\thispagestyle{empty}
+	\pagestyle{empty}
+	\begin{itemize}
+	\item \textbf{Correctness} (80\%) \hfill \mun{.75}/80 \\
+	There are \theenumi{} problems in this section, so they are 
+	worth 	
+	{\color{red} \pgfmathtruncatemacro{\worth}{80/\theenumi}\worth{} 	points each}.
+	\begin{multicols}{2}
+	\begin{footnotesize}
+	\renewcommand{\QA}[1]{\begin{quote}{\color{red}##1}\end{quote}}
+	\setcounter{enumi}{0}
+	\Content
+	\renewcommand{\QA}[1]{}
+	\end{footnotesize}
+	\end{multicols}
+	\item \textbf{Thoroughness} (10\%) \hfill \mun{.75}/10 \\
+	This should reflect the extent to which you justified your answers 	(i.e., ``showed your work").	
+	\item \textbf{Presentation} (10\%) \hfill \mun{.75}/10 \\
+	This number will be inversely proportional to my level of 				frustration upon trying to read your work.\\
+	\hrule \vspace{.25in}
+	\hfill \textbf{Submission grade}: \mun{.675}/100
+	\end{itemize}
+	%\addtocounter{page}{-1} % FIX (account for multipage rubric)
+	\newpage
+	\setcounter{page}{\value{RubricPageCount}}
+	\pagestyle{headings}
+	}
+
+\newcommand{\LogicRubricNoMulticols}{
+	\newpage
+	\setcounter{RubricPageCount}{\value{page}}
+	\subsection{Section \thesection{} Grading Rubric}	
+	\thispagestyle{empty}
+	\pagestyle{empty}
+	\begin{itemize}
+	\item \textbf{Correctness} (80\%) \hfill \mun{.75}/80 \\
+	There are \theenumi{} problems in this section, so they are 
+	worth 	
+	{\color{red} \pgfmathtruncatemacro{\worth}{80/\theenumi}\worth{} 	points each}.
+	\begin{footnotesize}
+	\renewcommand{\QA}[1]{\begin{quote}{\color{red}##1}\end{quote}}
+	\setcounter{enumi}{0}
+	\Content
+	\renewcommand{\QA}[1]{}
+	\end{footnotesize}
+	\item \textbf{Thoroughness} (10\%) \hfill \mun{.75}/10 \\
+	This should reflect the extent to which you justified your answers 	(i.e., ``showed your work").	
+	\item \textbf{Presentation} (10\%) \hfill \mun{.75}/10 \\
+	This number will be inversely proportional to my level of 				frustration upon trying to read your work.\\
+	\hrule \vspace{.25in}
+	\hfill \textbf{Submission grade}: \mun{.675}/100
+	\end{itemize}
+	%\addtocounter{page}{-1} % FIX (account for multipage rubric)
+	\newpage
+	\setcounter{page}{\value{RubricPageCount}}
+	\pagestyle{headings}
+	}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\colorchange}{white}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\axisgridnumbers}[2]
+{
+\begin{tikzpicture}[baseline=0]
+\draw (-#1,-#1) grid (#1,#1);
+
+\draw[<->,ultra thick] (-#1-.3,0) -- (#1+.3,0);
+\draw[<->,ultra thick] (0,-#1-.3) -- (0,#1+.3);
+
+\foreach \i in {1,...,#1}
+{\draw[ultra thick] (-.2,\i)  -- (.2,\i) node[right, fill=white]{\i};}
+\foreach \i in {1,...,#1}
+{\draw[ultra thick] (-.2,-\i)  -- (.2,-\i) node[right, fill=white]{-\i};}
+\foreach \i in {1,...,#1}
+{\draw[ultra thick] (\i,.2)  -- (\i,-.2) node[below, fill=white]{\i};}
+\foreach \i in {1,...,#1}
+{\draw[ultra thick] (-\i,.2)  -- (-\i,-.2) node[below, fill=white]{-\i};}
+\granswerswitch{#2}
+
+\end{tikzpicture}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\filledaxisgridnumbers}[2]
+{
+\begin{tikzpicture}[baseline=0]
+\draw (-#1,-#1) grid (#1,#1);
+
+\draw[<->,ultra thick] (-#1-.3,0) -- (#1+.3,0);
+\draw[<->,ultra thick] (0,-#1-.3) -- (0,#1+.3);
+
+\foreach \i in {1,...,#1}
+{\draw[ultra thick] (-.2,\i)  -- (.2,\i) node[right, fill=white]{\i};}
+\foreach \i in {1,...,#1}
+{\draw[ultra thick] (-.2,-\i)  -- (.2,-\i) node[right, fill=white]{-\i};}
+\foreach \i in {1,...,#1}
+{\draw[ultra thick] (\i,.2)  -- (\i,-.2) node[below, fill=white]{\i};}
+\foreach \i in {1,...,#1}
+{\draw[ultra thick] (-\i,.2)  -- (-\i,-.2) node[below, fill=white]{-\i};}
+
+#2
+\end{tikzpicture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\RevQues}[3]{
+
+{\fontsize{25}{30}\selectfont #1}\newpage
+
+\begin{center}{\fontsize{#3}{#3}\selectfont #2}\end{center}
+
+\vskip.1in\hrule\vskip.5in
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{GraphLetter}\stepcounter{GraphLetter}
+\newcommand{\PrintGraphLetter}
+{{\fontsize{25}{30}\selectfont\centering\textbf{Graph \Alph{GraphLetter}}\newline }\stepcounter{GraphLetter}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\filledaxisgrid}[1]
+{
+\begin{tikzpicture}
+
+\draw[step=.25] (-1.25,-1.25) grid (1.25,1.25);
+
+\draw[<->, ultra thick] (-1.45,0) -- (1.45,0);
+\draw[<->, ultra thick] (0,-1.45) -- (0,1.45);
+
+\draw [ultra thick] (0,-.1)  -- (0,0.1);
+\draw [ultra thick] (.25,-.1)  -- (.25,0.1);
+\draw [ultra thick] (.5,-.1)  -- (.5,0.1);
+\draw [ultra thick] (.75,-.1)  -- (.75,0.1);
+\draw [ultra thick] (1,-.1)  -- (1,0.1);
+\draw [ultra thick] (1.25,-.1)  -- (1.25,0.1);
+\draw [ultra thick] (-.25,-.1) -- (-.25,0.1);
+\draw [ultra thick] (-.5,-.1) -- (-.5,0.1);
+\draw [ultra thick] (-.75,-.1) -- (-.75,0.1);
+\draw [ultra thick] (-1,-.1)  -- (-1,0.1);
+\draw [ultra thick] (-1.25,-.1) -- (-1.25,0.1);
+
+\draw [ultra thick] (-.1,.25)  -- (0.1,.25);
+\draw [ultra thick] (-.1,.5)  -- (0.1,.5);
+\draw [ultra thick] (-.1,.75)  -- (0.1,.75);
+\draw [ultra thick] (-.1,1)  -- (0.1,1);
+\draw [ultra thick] (-.1,1.25)  -- (0.1,1.25);
+
+\draw [ultra thick] (-.1,-.25)  -- (0.1,-.25);
+\draw [ultra thick] (-.1,-.5)  -- (0.1,-.5);
+\draw [ultra thick] (-.1,-.75) -- (0.1,-.75);
+\draw [ultra thick] (-.1,-1) -- (0.1,-1);
+\draw [ultra thick] (-.1,-1.25) -- (0.1,-1.25);
+
+#1
+
+\end{tikzpicture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% COUNTER FOR POINTS POSSIBLE ON TESTS
+\newtotcounter{PointsPossible}
+\newcommand{\points}[2]{ 				%\points{<number of points per problem>}{<number of problems>}
+	\pgfmathtruncatemacro{\howmany}{#1*#2}
+	\addtocounter{PointsPossible}{\howmany}
+	(#1 \ifnumcomp{#1}{=}{1}{point}{points}\ifnumcomp{#2}{=}{1}{)}{ each)}		
+		%you don't have to type ``point" or ``points"
+		%if # of problems is > 1, it will print ``point(s) each"
+}
+
+\newtotcounter{CalcPointsPossible}
+\newcommand{\calcpoints}[2]{ 				%\points{<number of points per problem>}{<number of problems>}
+	\pgfmathtruncatemacro{\howmany}{#1*#2}
+	\addtocounter{CalcPointsPossible}{\howmany}
+	(#1 \ifnumcomp{#1}{=}{1}{point}{points}\ifnumcomp{#2}{=}{1}{)}{ each)}		
+		%you don't have to type ``point" or ``points"
+		%if # of problems is > 1, it will print ``point(s) each"
+}
+
+% BC PRECALCULUS TEST INSTRUCTIONS/HEADER
+\newcommand{\NonCalculatorSection}{
+	\begin{center} \textbf{Non-calculator section}\\ [5pt]
+	\fbox{\fbox{\parbox{\textwidth}{Answers provided without supporting work will not receive credit.  There are
+	\total{PointsPossible} points possible on the non-calculator section and \total{CalcPointsPossible} points possible on the
+	calculator section, excluding bonus problems.}}}\end{center}}
+
+\newcommand{\CalculatorSection}{
+	\begin{center} \textbf{Calculator section}\\ [5pt]
+	\fbox{\fbox{\parbox{\textwidth}{Answers provided without supporting work will not receive credit.  There are 					\total{PointsPossible} points possible on the non-calculator section and \total{CalcPointsPossible} points possible on the 				calculator section, excluding bonus problems. \textbf{Round all approximations to the nearest thousandth}.}}}\end{center}}
+
+\newcommand{\CalculatorTestInstructions}{\NonCalculatorSection}
+
+\newcommand{\BCPCTestTitle}[1]{
+	{\fontsize{15}{18}\selectfont\textbf{BC Precalculus}} \hfill \textbf{Name:} \mun{2} \\ [12pt]
+	{\fontsize{15}{18}\selectfont\textbf{Exam \testnumber: \testname}} \hfill \textbf{Period:} \mun{2} \\
+	\ifstrequal{#1}{}
+		{\begin{center}\fbox{\fbox{\parbox{\textwidth}{You may not use a calculator.  Answers provided without supporting work will not receive credit.  There are \total{PointsPossible} points possible (excluding the bonus).}}}\end{center}} 
+		{\CalculatorTestInstructions}
+	\thispagestyle{empty}
+}
+
+\newcommand{\BeginCalculatorSection}{
+	\renewcommand{\CalculatorTestInstructions}{\CalculatorSection}
+	\BCPCTestTitle{calc}
+	\renewcommand{\CalculatorTestInstructions}{\NonCalculatorSection}
+}
+
+\newcommand{\ABnonCalculatorSection}{
+	\begin{center} \textbf{Non-calculator section}\\ [5pt]
+	\fbox{\fbox{\parbox{\textwidth}{No calculator is allowed for these problems. Show all of your work. Clearly label any functions, graphs, tables, or other objects that you use. Answers without supporting work will usually not receive credit. During the timed portion for the non-calculator section, you may continue to work on the questions in the calculator section without the use of a calculator. There are \total{CalcPointsPossible} points possible on the calculator section and \total{PointsPossible} points possible on the non-calculator section. Combined, these sections of the test are worth 50\% of your total score.}}}\end{center}}
+
+\newcommand{\ABcalculatorSection}{
+	\begin{center} \textbf{Calculator section}\\ [5pt]
+	\fbox{\fbox{\parbox{\textwidth}{A graphing calculator is required for these problems. Your final answers should be accurate to three places after the decimal point. Show all of your work. Clearly label any functions, graphs, tables, or other objects that you use. Answers without supporting work will usually not receive credit. During the timed portion for the non-calculator section, you may continue to work on the questions in the calculator section without the use of a calculator. There are \total{CalcPointsPossible} points possible on the calculator section and \total{PointsPossible} points possible on the non-calculator section. Combined, these sections of the test are worth 50\% of your total score.}}}\end{center}}
+
+\newcommand{\ABcalculatorInstructions}{\ABcalculatorSection}
+
+\newcommand{\CalcABfrExamTitle}[1]{
+	\getpwd
+	\StrGobbleRight{\thepwd}{1}[\NoLastSlash]
+	\StrBetween*[1,1]{\thepwd}{Exam }{ -}[\testnumber]
+	\StrBehind*[1]{\NoLastSlash}{ - }[\testname]
+	\begin{textblock}{1}(3.5,0)
+		\begin{flushright}
+			{\footnotesize MC:} \mun{.5} \\[12pt]
+			{\footnotesize FR:} \mun{.5}	\\
+		\end{flushright}
+	\end{textblock}	
+	{\fontsize{15}{18}\selectfont\textbf{AP Calculus AB}} \hfill \textbf{Name:} \mun{2} \\ [12pt]
+	{\fontsize{15}{18}\selectfont\textbf{Exam \testnumber: \testname}} \hfill \textbf{Period:} \mun{2} \\ \vspace{-16pt}	
+	\ifstrequal{#1}{}
+		{\begin{center}\fbox{\fbox{\parbox{\textwidth}{No calculator is allowed for these problems. Show all of your work. Clearly label any functions, graphs, tables, or other objects that you use. Answers without supporting work will usually not receive credit. There are \total{PointsPossible} points possible. This section of the test is worth 50\% of your total score.}}}\end{center}} 
+		{\ABcalculatorInstructions}
+	\thispagestyle{empty}
+}
+
+\newcommand{\BeginNonCalculatorSection}{
+	\renewcommand{\ABcalculatorInstructions}{\ABnonCalculatorSection}
+	\CalcABfrExamTitle{calc}
+	\renewcommand{\ABcalculatorInstructions}{\ABcalculatorSection}
+}
+
+\newcommand{\CalcABQuizTitle}[1]{
+	\getmainfile
+	\StrChar{\themainfile}{5}[\UnderscoreDot]
+	\StrSubstitute[0]{\themainfile}{\UnderscoreDot}{ }[\AlmostName]
+	\StrBetween*[1,1]{\AlmostName}{over }{.tex}[\testname]
+	{\fontsize{15}{18}\selectfont\textbf{AP Calculus AB}} \hfill \textbf{Name:} \mun{2} \\ [12pt]
+	{\fontsize{15}{18}\selectfont\textbf{Quiz: \testname}} \hfill \textbf{Period:} \mun{2} \\ \vspace{-16pt}
+	\begin{center}\fbox{\fbox{\parbox{\textwidth}{\ifstrequal{#1}{}{No calculator is allowed for these problems.}{A graphing calculator is required for these problems. Your final answers should be accurate to three places after the decimal point.} Show all of your work. Clearly label any functions, graphs, tables, or other objects that you use. Answers without supporting work will usually not receive credit. There are \total{PointsPossible} points possible. }}}\end{center}
+	\thispagestyle{empty}
+}
+
+\newcommand{\CalcDiscGroupQuizTitle}[1]{
+	\getmainfile	
+	{\fontsize{15}{18}\selectfont\textbf{AP Calculus AB - Discussion}} \hfill \textbf{Names:} \mun{2} \\ [12pt]
+	{\fontsize{15}{18}\selectfont\textbf{Group Quiz: Mahavier \StrLeft{\themainfile}{3}}} \hfill \textbf{Period:} \mun{2} \\ \vspace{-20pt}
+	\begin{center}\fbox{\fbox{\parbox{\textwidth}{There are \total{PointsPossible} points possible. Check the boxes below to indicate that you understand the rules and guidelines of this activity.
+	\begin{itemize}
+		\item[$\square$] It is not acceptable to split up the problems. Every member of the group should be working together on the same problem at all times.
+		\item[$\square$] \ifstrequal{#1}{}{No calculator is allowed for these problems.}{A graphing calculator is required for these problems. \item[$\square$]  \points{2}{1}Your final answers should be accurate to three places after the decimal point.}
+		\item[$\square$] You may access our textbook and your notes. However, you may not access any other resources (i.e., no Googling, asking non-group-members for help, etc.). This means members of one group may not communicate with members of a different group.
+		\item[$\square$] Show all of your work. Answers without supporting work will usually not receive credit. 
+		\item[$\square$] I will grade this for the clarity of your explanations in addition to the correctness of your work. Clearly label any functions, graphs, tables, or other objects that you use.
+		\item[$\square$] Do not submit a rough draft. Make sure that your work is readable and organized.
+	\end{itemize}		
+	}}}\end{center}
+	\thispagestyle{empty}
+}
+
+% Text-sized calculator character
+\newcommand\calculator{\tikz{
+\node (c) [inner sep=0pt, draw, fill=black, anchor=south west]{\phantom{N}};
+\begin{scope}[x=(c.south east),y=(c.north west)]
+   \fill[white] (.15,.7) rectangle (.85,.85);
+   \foreach \x in {.15, .433, .717}{
+   \foreach \y in {.15, .333, .517}{
+   \fill[white] (\x,\y) rectangle +(.1333,.0833);}}
+\end{scope}
+}}
+
+
+\newcommand{\LogicTestTitle}{
+	{\fontsize{15}{18}\selectfont\textbf{Logic}} \hfill
+	 \textbf{Name:} \mun{2} \\ [12pt]
+	{\fontsize{15}{18}\selectfont\textbf{Test \testnumber:
+	 \testname}} \hfill \textbf{Period:} \mun{2} \\
+	\begin{center}\fbox{\fbox{\parbox{\textwidth}{Make sure you
+	 justify all claims you make and explain yourself thoroughly.
+	 There are \total{PointsPossible} points possible (excluding the
+	 bonus).}}}\end{center} 
+	\thispagestyle{empty}
+	}
+
+\newcommand{\CPSExamTitle}[2]{
+	\begin{flushleft}
+	{\fontsize{15}{18}\selectfont\textbf{Computational Problem Solving}} \hfill \textbf{Name:} \mun{2} \\ [12pt]
+	{\fontsize{15}{18}\selectfont\textbf{Exam \testnumber: \testname}} \\ \vspace{-16pt}
+	\end{flushleft} 
+	\begin{center}\fbox{\fbox{\parbox{\textwidth}{Answer all questions by bubbling on your answer sheet.  Write your name
+	 on \textbf{both} the answer sheet and the exam itself. \textbf{No credit} will be given for work done on the pages with the
+	 questions, but you may write on it.  There are \MCVer{#1}{#2} questions, each worth 5 points. You may not use a
+	 calculator.}}}\end{center}
+	\thispagestyle{empty}
+}
+
+\newcommand{\CPSGuidelines}[2]{
+	\hrule
+	\textbf{How to get credit for this #1:}
+	#2
+}
+
+\newcommand{\CPSShowMe}{
+	\begin{enumerate}
+	\item Show me your finished work \textbf{during class} at an opportune time.  You may have to explain things to me or make
+	 some edits that I suggest.
+	\item Do \textbf{NOT} send me anything electronically or expect me to grade a hard copy of something in your absence.  The
+	 only acceptable way to receive credit is to follow the procedure above.
+	\end{enumerate}
+}
+
+\newcommand{\CPSProveATheorem}{
+	\begin{enumerate}
+	\item Prove the theorem(s) listed above.
+	\item Typset your proof in \LaTeX{}.  Include your name, the project title, the statement of the theorem(s), and your proof(s)
+	 in your document.
+	\item Show me your document (digitally or as a hard copy) \textbf{during class} at an opportune time.  You will have to walk
+	 me through your proof, explaining to me why it works.
+	\item Do \textbf{NOT} send me anything electronically or expect me to grade a hard copy of something in your absence.  The
+	 only acceptable way to receive credit is to follow the procedure above.
+	\end{enumerate}
+}
+
+\newcommand{\CPSSolveThis}{
+	\begin{enumerate}
+	\item Solve the problem(s) listed above.
+	\item Typset your solution in \LaTeX{}.  Include your name, the project title, the statement of the problem(s), your answer,
+	 and a thorough explanation of your method or rationale in your document.
+	\item Show me your document (digitally or as a hard copy) \textbf{during class} at an opportune time.  You will have to walk
+	 me through your solution, explaining to me why it works.
+	\item Do \textbf{NOT} send me anything electronically or expect me to grade a hard copy of something in your absence.  The
+	 only acceptable way to receive credit is to follow the procedure above.
+	\end{enumerate}
+}
+
+\newcommand{\CPSTypesetSomething}{
+	\begin{enumerate}
+	\item Typset your document in \LaTeX{}.  \textbf{You must use my preamble} with no additional packages or commands (unless
+	 we have spoken about it).
+	\item When you are finished, show me your .tex file, .pdf file, and your original paper document \textbf{during class} at an
+	 opportune time.  I may require you to revise some of your work.
+	\item Once you've received my verbal approval, send me one email with your .tex and .pdf files attached.
+	\item Do \textbf{NOT} send me anything unbeckoned electronically or expect me to grade a hard copy of something in your
+	 absence.  The only acceptable way to receive credit is to follow the procedure above.
+	\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% MULTIPLE CHOICE
+\newcommand{\mctwo}[2]{
+	\begin{multicols}{2}
+		\begin{enumerate}[A.]
+			\item #1
+			\item #2
+		\end{enumerate}
+	\end{multicols}}
+\newcommand{\mcthree}[3]{
+	\begin{multicols}{2}
+		\begin{enumerate}[A.]
+			\item #1
+			\item #2
+			\item #3
+		\end{enumerate}
+	\end{multicols}}
+\newcommand{\mcfour}[4]{
+	\begin{multicols}{2}
+		\begin{enumerate}[A.]
+			\item #1
+			\item #2
+			\item #3
+			\item #4
+		\end{enumerate}
+	\end{multicols}}
+\newcommand{\mc}[5]{
+	\begin{multicols}{2}
+		\begin{enumerate}[A.]
+			\item #1
+			\item #2
+			\item #3
+			\item #4
+			\item #5
+		\end{enumerate}
+	\end{multicols}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% HIGHLIGHT PYTHON SYNTAX USING THE LISTINGS PACKAGE (CAN DO OTHER LANGUAGES TOO)
+% settings to mimmic Idle: http://blog.miliauskas.lt/2008/09/python-syntax-highlighting-in-latex.html
+
+% Custom colors
+\definecolor{orange}{rgb}{1,0.5,0}
+\definecolor{lightgreen}{rgb}{0,0.7,0}
+\definecolor{gray}{gray}{0.5}
+\definecolor{green}{rgb}{0,0.5,0}
+\definecolor{lightgreen}{rgb}{0,0.7,0}
+\definecolor{purple}{rgb}{0.5,0,0.5}
+
+% Python style for highlighting
+\newcommand\pythonstyle{
+\lstset{
+  backgroundcolor=\color{white},	% choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\ttfamily\small,        		% the size of the fonts that are used for the code
+%  breakatwhitespace=false,         	% sets if automatic breaks should only happen at whitespace
+%  breaklines=true,                 		% sets automatic line breaking
+%  captionpos=b,                    		% sets the caption-position to bottom
+  commentstyle=\color{red},    		% comment style
+%  deletekeywords={...},            	% if you want to delete keywords from the given language
+%  escapeinside={\%*}{*)},          	% if you want to add LaTeX within your code
+%  extendedchars=true,              	% lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=tb,	                   			% adds a frame around the code, also could use single for box
+%  keepspaces=true,                 		% keeps spaces in text, useful for keeping indentation of code (possibly needs 										% columns=flexible)
+  keywordstyle=\color{orange},       	% keyword style
+  keywords=[2]{sum,range},		% manually add keywords you want to render in purple 
+  keywordstyle={[2]\ttfamily\color{purple}},
+  language=Python,                 		% the language of the code
+  morecomment=[s][\color{lightgreen}]{"""}{"""},
+  numbers=left,                    		% where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   		% how far the line-numbers are from the code
+  numberstyle=\tiny\color{gray}, 	% the style that is used for the line-numbers
+  otherkeywords={self},            		% if you want to add more keywords to the set
+procnamekeys={def,class},
+procnamestyle=\color{blue}\textbf,
+%  rulecolor=\color{black},         		% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. 								% comments (green here))
+%  showspaces=false,                		% show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          		% underline spaces within strings only
+%  showtabs=false,                  		% show tabs within strings adding particular underscores
+%  stepnumber=2,                    		% the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{lightgreen},     		% string literal style
+  tabsize=3,	                   			% sets default tabsize to that number of spaces
+%  title=\lstname                   		% show the filename of files included with \lstinputlisting; also try caption instead of title
+}}
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{\unskip\pythonstyle\lstinline!#1!}
+
+
+% HIGHLIGHT PYTHON SYNTAX USING THE LISTINGS PACKAGE
+
+\newcommand\latexstyle{
+\lstset{
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\tt\small,
+    keywordstyle=\color{blue},
+    identifierstyle=\color{black},
+    commentstyle=\color{gray}
+}}
+
+% LaTeX environment
+\lstnewenvironment{latexcode}[1][]
+{
+\latexstyle
+\lstset{#1}
+}
+{}
+
+% LaTeX for external files
+\newcommand\latexexternal[2][]{{
+\latexstyle
+\lstinputlisting[#1]{#2}}}
+
+% LaTeX for inline
+\newcommand\latexinline[1]{\unskip\latexstyle\lstinline!#1!}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% FOR THE FUNCTION PLOT
+\gdef\aster{*}
+\newcount\interpoints
+\newcount\iDomains
+\newcount\jDomains
+
+\long\def\domainlist #1*{
+    \def\wstuff{#1}
+    \expandafter\ulword\wstuff*
+}
+
+\long\def\ulword#1 {
+    \def\one{#1}
+    \ifx\one\aster\let\go\relax
+    \else\vtop{
+        \global\advance\interpoints by1
+        \expandafter\gdef\csname domains\romannumeral\interpoints\endcsname{#1}
+        %\immediate\write\sendtoaux{\noexpand\csname domains\romannumeral\interpoints\noexpand\endcsname}
+        \relax
+    }
+    \let\go\ulword
+    \fi\go
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\function}[3]
+{
+\global\interpoints=0
+%You need a space before the * here
+\domainlist #3 *
+\global\iDomains=1
+\global\jDomains=2
+
+\pgfmathsetmacro{\numintervals}{\interpoints/2}
+\foreach \k in {1,...,\numintervals}
+{
+
+\pgfmathsetmacro{\leftpoint}{\csname domains\romannumeral\iDomains\noexpand\endcsname}
+\pgfmathsetmacro{\rightpoint}{\csname domains\romannumeral\jDomains\noexpand\endcsname}
+\global\advance\iDomains by2
+\global\advance\jDomains by2
+
+\draw[#1,<->,samples=100,domain=\leftpoint:\rightpoint] plot(\x,{#2});
+}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nafunction}[3]
+{
+\interpoints=0
+%You need a space before the * here
+\domainlist #3 *
+\global\iDomains=1
+\global\jDomains=2
+
+\pgfmathsetmacro{\numintervals}{\interpoints/2}
+\foreach \k in {1,...,\numintervals}
+{
+
+\pgfmathsetmacro{\leftpoint}{\csname domains\romannumeral\iDomains\noexpand\endcsname}
+\pgfmathsetmacro{\rightpoint}{\csname domains\romannumeral\jDomains\noexpand\endcsname}
+\global\advance\iDomains by2
+\global\advance\jDomains by2
+
+\draw[#1,samples=100,domain=\leftpoint:\rightpoint] plot(\x,{#2});
+}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% MULTIPLE CHOICE ASSESSMENTS
+\newcommand{\StandScale}{.275}
+\newcommand{\SmallScale}{.25}
+\newcommand{\sg}{\vskip.2in}
+
+\newcommand{\MCBreak}{
+\vspace*{\fill}\columnbreak
+}
+
+\newcommand{\MCExamStart}[3]
+{
+#1
+\begin{center}
+\fbox{\fbox{\parbox{6in}{%\centering
+Answer all questions by bubbling on your answer sheet.  Write your name on \textbf{both} the answer sheet and the exam itself. \textbf{No credit} will be given for work done on the pages with the questions, but you may write on it.  There are \MCVer{#2}{#3} questions, each worth 2 points. You may not use a calculator. Unless stated otherwise, all tick marks are at intervals of 1.}}}
+\end{center}
+}
+
+\newcommand{\FinalExamStart}
+{\begin{center}
+\fbox{\fbox{\parbox{6in}{%\centering
+Answer all questions by bubbling on your answer sheet.  Write your name on \textbf{both} the answer sheet and the exam itself. \textbf{No credit} will be given for work done on the pages with the questions, but you may write on it.  There are \MCVer{fifty}{50} questions, each worth 2 points. You may not use a calculator. Unless stated otherwise, all tick marks are at intervals of 1.}}}
+\end{center}
+}
+
+\newcommand{\BCFinalExamStart}[1]
+{
+\bctitle{#1}{0}
+\FinalExamStart
+}
+
+\newcommand{\MCStart}{
+\newcount\MCAnsCount \MCAnsCount=0
+\newcount\MCSecCount \MCSecCount=1
+\newcount\MCProblemCount \MCProblemCount=1
+}
+
+\newcommand{\MCRestart}{
+\MCSecCount=1
+\MCProblemCount=1
+}
+
+\newcommand{\MCSection}[2]
+{\hrule \vskip.2in Section \number\MCSecCount.\space #1\sg\hrule
+\begin{multicols}{2}
+\begin{enumerate}
+\ifnum\MCSecCount=1
+\else
+    \setcounter{enumi}{\MCProblemCount}
+    \addtocounter{enumi}{-1}
+\fi
+#2
+%\setcounter{tempcounter}{\value{enumi}}
+\end{enumerate}
+\end{multicols}
+\global\advance\MCSecCount by1
+}
+
+\newcommand{\MCEmptySection}[1]
+{
+\begin{multicols}{2}
+\begin{enumerate}
+\ifnum\MCSecCount=1
+\else
+    \setcounter{enumi}{\MCProblemCount}
+    \addtocounter{enumi}{-1}
+\fi
+#1
+%\setcounter{tempcounter}{\value{enumi}}
+\end{enumerate}
+\end{multicols}
+\global\advance\MCSecCount by1
+}
+
+
+\newcommand{\MCAns}[6]{
+\item #1
+\begin{enumerate}
+\ifnumequal{\MCVerNum}{1}{
+    \item #2
+    \item #3
+    \item #4
+    \item #5
+    \ifnumequal{#6}{1}
+    {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{A}}{}
+    \ifnumequal{#6}{2}
+    {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{B}}{}
+    \ifnumequal{#6}{3}
+    {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{C}}{}
+    \ifnumequal{#6}{4}
+    {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{D}}{}
+}{
+    \ifnum\MCAnsCount=0
+        \item #2
+        \item #3
+        \item #4
+        \item #5
+        \ifnumequal{#6}{1}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{A}}{}
+        \ifnumequal{#6}{2}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{B}}{}
+        \ifnumequal{#6}{3}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{C}}{}
+        \ifnumequal{#6}{4}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{D}}{}
+    \else
+    \fi
+
+    \ifnum\MCAnsCount=1
+        \item #5
+        \item #2
+        \item #3
+        \item #4
+        \ifnumequal{#6}{1}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{B}}{}
+        \ifnumequal{#6}{2}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{C}}{}
+        \ifnumequal{#6}{3}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{D}}{}
+        \ifnumequal{#6}{4}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{A}}{}
+    \else
+    \fi
+
+    \ifnum\MCAnsCount=2
+        \item #3
+        \item #2
+        \item #5
+        \item #4
+        \ifnumequal{#6}{1}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{B}}{}
+        \ifnumequal{#6}{2}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{A}}{}
+        \ifnumequal{#6}{3}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{D}}{}
+        \ifnumequal{#6}{4}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{C}}{}
+    \else
+    \fi
+
+    \ifnum\MCAnsCount=3
+        \item #4
+        \item #5
+        \item #2
+        \item #3
+        \ifnumequal{#6}{1}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{C}}{}
+        \ifnumequal{#6}{2}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{D}}{}
+        \ifnumequal{#6}{3}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{A}}{}
+        \ifnumequal{#6}{4}
+        {\expandafter\gdef\csname MCAns\romannumeral\MCProblemCount\endcsname{B}}{}
+    \else
+    \fi
+
+    \ifnum\MCAnsCount=3
+        \MCAnsCount=0
+    \else
+        \global\advance\MCAnsCount by1
+    \fi
+
+}
+\end{enumerate}
+\global\advance\MCProblemCount by1
+}
+
+
+\newcommand{\MCKey}[1]{
+	\newpage
+	\thispagestyle{empty}
+	\begin{tightcenter} {\Huge KEY #1}\end{tightcenter}
+	\pgfmathsetmacro{\AnsKeyNum}{\MCProblemCount-1}
+	\begin{multicols}{2}
+	\begin{enumerate}
+	\foreach \i in {1,...,\AnsKeyNum}
+	{\item\csname MCAns\romannumeral\i\endcsname}
+	\end{enumerate}\end{multicols}
+}
+
+\newcommand{\MCVer}[2]{
+	\ifnumequal{\MCVerNum}{1}{#1}{#2}
+}
+
+\newcommand{\MCContent}{}
+
+\newcommand{\MCBuildem}[2]{
+	\newcommand{\MCVerNum}{1}
+
+	\MCStart\MCContent\MCKey{\MCVer{#1}{#2}}
+
+	\newpage
+	\setcounter{page}{1}
+	\renewcommand{\MCVerNum}{2}
+	%HERE
+
+	\MCRestart\MCContent\MCKey{\MCVer{#1}{#2}}
+}
+
+\newcommand{\MCBuildit}{
+	\newcommand{\MCVerNum}{1}
+	\MCStart\MCContent\MCKey{\MCVer{}{}}
+}
+
+\iffalse
+\ExplSyntaxOn
+\newcommand{\fpabs}[1]{\fp_eval:n{abs(#1)}}
+\ExplSyntaxOff
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%SAMPLE EXCEL RANGE
+
+\newcommand{\excel}{
+Use the spreadsheet below to answer the following question.
+\begin{center}
+\vspace{-11pt}
+\begin{tikzpicture}
+\draw[gray, thick, fill=gray!25](0,0)--(1,0)--(1,2.25)--(6,2.25)--(6,3)--(0,3)--(0,0);
+\draw[gray!60, thick, fill=gray!60](.5,2.35)--(.9,2.35)--(.9,2.75)--(.5,2.35);
+\draw[gray, ystep = .75] (0,0) grid (6,3);
+\foreach \x in {1, 2, 3, 4, 5}
+\foreach \y in {1, 2, 3}
+	\node at (.5+\x, 2.625-.75*\y){{\char\numexpr`A-1+\x\relax}\y};
+\foreach \x in {1, 2, 3, 4, 5}
+	\node at (.5+\x, 2.625){{\char\numexpr`A-1+\x\relax}};
+\foreach \y in {1, 2, 3}
+	\node at (.5, 2.625-.75*\y){\y};
+\end{tikzpicture}
+\end{center}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% VIDEO SCRIPT COMMANDS FOR IDEA
+
+\newenvironment{script}
+{\begin{center}
+\begin{tabular}{p{.45\linewidth}|p{.45\linewidth}}
+\begin{center}
+\textbf{\huge{Host}}
+\end{center}
+&
+\begin{center}
+\textbf{\huge{Presenter}}
+\end{center} \\ \hline
+& \\
+}
+{
+\end{tabular}
+\end{center}
+}
+
+\newcommand{\host}[1]
+	{#1 & \\[5pt]}
+	
+\newcommand{\presenter}[1]
+	{& #1 \\[5pt]}
+
+\newcommand{\scriptBreak}{\end{script} \begin{script}}
+
+\newcommand{\scriptCut}
+	{\begin{tikzpicture}[remember picture, overlay]
+		\node (A) {};
+		\node (B) at (current page.east) {};
+		\path let \p1 = (A), \p2 = (B) in node [draw] 
+			at (\x2-.625in,\y1) {CUT};
+	\end{tikzpicture}}
