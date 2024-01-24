@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath}
+\begin{document}
+\begin{flushleft}
+      \LARGE\textbf{Greatest Common Divisor}\normalsize\\ \vspace{11pt}
+
+      The \textit{greatest common divisor} (GCD) of two integers, $a$ and $b$, which are not both 0, is the largest integer that divides both $a$ and $b$. We write this gcd($a, b$) and define gcd($0, 0$) to be 0 because otherwise it would be annoying.\\ \vspace{11pt}
+
+      We also have a name for two integers that share no factors. If gcd($a, b$) = 1, we say that $a$ and $b$ are relatively prime.
+\end{flushleft}
+
+\begin{enumerate}
+      \item Find the greatest common divisor for each of the following pairs of integers.
+            \begin{enumerate}
+                  \item 15, 35\\
+                        5
+                  \item 0, 111\\
+                        111 (0 is divisible by every integer)
+                  \item -12, 18\\
+                        6
+                  \item 99, 100\\
+                        1 (the prime factors of 99 are 3, 3, and 11; the prime factors of 100 are 2, 2, 5, and 5)
+                  \item 11, 121\\
+                        11
+                  \item 100, 102\\
+                        2
+            \end{enumerate}
+      \item Let $a$ be a positive integer. What is gcd($a, 2a$)?\\
+            $a$
+      \item Let $a$ be a positive integer. What is gcd($a, a^{2}$)?\\
+            $a$
+      \item Let $a$ be a positive integer. What is gcd($a, a + 1$)?\\
+            1. % $\gcd(a, b) \leq \min(a, b)$, so $\gcd(a, a+1) \leq a$. Every positive integer can be divided by 1, so $1 \leq \gcd(a, a+1) \leq a$. Every divisor 
+            Every integer can be divided by 1, so $1 \leq \gcd(a, a+1)$. Let $a$ have a divisor $x$ such that $x > 1$. $a\ \text{mod}\ x = 0$, so $(a+1)\ \text{mod}\ x = 1$. Thus, there is no integer greater than 1 that divides both $a$ and $a+1$.
+      \item Let $a$ be a positive integer. What is gcd($a, a + 2$)?\\
+            If 2 divides $a$, $\gcd(a, a+2) = 2$.\\
+            Otherwise, $\gcd(a, a+2) = 1$.
+      \item Find the greatest common divisor for each of the following sets of integers.
+            \begin{enumerate}
+                  \item 8, 10, 12\\
+                        2
+                  \item 6, 15, 21\\
+                        3
+                  \item -7, 28, -35\\
+                        7
+            \end{enumerate}
+      \item Find a set of three integers that are mutually relatively prime, but any two of which are not  relatively prime.\\
+            6, 15, 10\\
+            To achieve this task, I figured I needed 3 numbers, each with 2 distinct prime factors. Each pair of numbers shares a prime factor, so I then reverse-engineered this. The 3 smallest prime numbers are 2, 3, and 5, so I multiplied pairs of these together.
+      \item Find four integers that are mutually relatively prime such that any three of these integers are not mutually relatively prime.\\
+      105, 70, 42, 30\\ 
+      This was found with a similar process. From 4 items, I could construct 4 groups of 3 (each group consists of 1 from the initial group removed), so I wanted 4 unique prime factors; I chose 2, 3, 5, and 7. I constructed 4 groups of 3: \{3, 5, 7\}, \{2, 5, 7\}, \{2, 3, 7\}, and \{2, 3, 5\}. I then took the product of each group.
+\end{enumerate}
+\end{document}
