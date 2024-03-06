@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+\begin{flushleft}
+    \LARGE\textbf{Divisors of Zero}\normalsize\\ \vspace{11pt}
+
+    Consider the integers modulo $n$. If $n$ is \textbf{not} prime, there is a peculiarity: there exist two non-zero numbers in $\mathbb{Z}_n$ such that their product is 0 mod $n$. For example, $2 \times 3 \equiv 0 \mod{ 6}$. In this example, we would call 2 and 3 \textit{divisors of zero} modulo 6. A divisor of zero, in this context, must be a positive number.\\ \vspace{6pt}
+
+    \textbf{Theorem: } If $p$ is a prime number, then there are no divisors of zero modulo $p$.\\ \vspace{6pt}
+    \hrule\vspace{6pt}
+    Assume there are two numbers $a$ and $b$ that are divisors of a prime number $p$ modulo $p$. Definitionally, $a, b \in \mathbb{Z}_p$ such that $a \times b \equiv 0 \mod{p}$ and $a \neq 0, b \neq 0$. Using the definition of modulo, we can rewrite this as $k \times p + 0 = a \times b$ where $k \in \mathbb{Z}$. This means that $p$ must evenly divide $ab$. Thus, $p$ must evenly divide either $a$ or $b$.\\
+    In the case where $p$ evenly divides $a$, $np = a$ for some positive integer $n$. $a$ must be non-zero, so $n \geq 1$. However, $a$ is must be an integer in $\mathbb{Z}_{p}$, i.e. $\{1, 2, 3, ... p-1 \}$. Therefore there is no $n \geq 1$ where $np = a$, so $p$ cannot evenly divide $a$. The same logic can be used to show that $p$ cannot evenly divide $b$.\\
+    We've reached a contradiction: it is not possible for $p$ to evenly divide $a$ or $b$. We can thus conclude the initial assumption of two divisors of zero, $a$ and $b$, modulo $p$, is false. There can be no divisors of zero modulo $p$.
+\end{flushleft}
+\end{document}
