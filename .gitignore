@@ -1,4 +1,10 @@
+# environmental
 .vscode/
+.ipynb_checkpoints/
+
+# used as input files
+*.txt 
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
