@@ -67,5 +67,27 @@
           Let $p$ and $q$ be distinct prime numbers, $k$ be a positive integer, and $M$ be a number in $\mathbb{Z}_{pq}$ with $\gcd(M, pq) = 1$. $M^{1+k(p-1)(q-1)} = M \times M^{k(p-1)(q-1)} = M \times (M^{(p-1)(q-1)})^{k} \mod{pq}$. By theorem 5.2, $M^{(p-1)(q-1)} \equiv 1 \mod{pq}$, so $M \times (M^{(p-1)(q-1)})^{k} \equiv M \times 1^{k} \equiv M \mod{pq}$. Thus, $M^{1+k(p-1)(q-1)} \equiv M \mod{pq}$.
     \item Prove Theorem 5.1 (RSA Cryptosystem Crux) based on what you have already learned.\\
           Let $p$ and $q$ be two distinct prime numbers, and let $E$ be relatively prime to $(p-1)(q-1)$. By theorem 5.4, there exists a number $D$ that is the multiplicative inverse of $E$ modulo $(p-1)(q-1)$. This means $ED \equiv 1 \mod{(p-1)(q-1)}$, or $ED = k(p-1)(q-1) + 1$ for some integer $k$. Thus, $M^{ED} = M^{k(p-1)(q-1) + 1} \equiv M \mod{pq}$ by theorem 5.3. Thus, $M^{ED} \equiv M \mod{pq}$.
+\end{enumerate}\hrule \vspace{8pt}   
+\textbf{The RSA Encryption Algorithm}\\ 
+Suppose Alice wants to send Bob a secret message.\\
+Bob picks two prime numbers, $p$ and $q$. Bob also picks an encoding number, $E$, from $Z_{(p-1)(q-1)}$ that is relatively prime to $(p-1)(q-1)$. Bob then makes $pq$ and $E$ public.\\
+Alice converts her number to a message $M$ ($M$ must be less than $pq$, but this can be achieved by breaking the message into segments). To encode this message, she calculates $M^{E} \mod{pq}$. \vspace{8pt}\\ 
+For these problems, suppose Bob picks $p = 3, q = 97$. Thus, $pq = 291$ and $(p-1)(q-1) = 192$. He also chooses $E = 5$.
+\begin{enumerate}
+    \item Suppose Alice's message is the number $M = 2$. What number does she send Bob? Describe in your own words how you found this number.\\
+    First, I calculated $M^{E}$. $2^{5} = 32$. $32 \mod{291} = 32$, so she will send Bob $32$.
+    \item Suppose that Alice’s secret message is the number M = 150. What number does she send Bob?\\
+    Again, Alice will send Bob $M^{E} \mod{pq}$, so $150^{5} \mod 291$. By modular multiplication rules, $150^{5} \mod{291} = (150^{2})^{2}*150 = 22500^{2} * 150 = (291*77 + 93)^{2} * 150 \equiv 93^2 * 150 = 8649 * 150 \equiv 210 * 150 = 31500 \equiv 72 \mod{291}$. Alice sends $72$ to Bob.
+\end{enumerate}
+To decode the message, Bob must find $D$, the multiplicative inverse of $E$ in $\mathbb{Z}_{(p-1)(q-1)}$. A computer can easily compute modular inverses with the Euclidean algorithm; in this case $D=77$.
+\begin{enumerate}
+\setcounter{enumi}{2}
+    \item Bob can now decode Alice's message.
+    \begin{enumerate}
+        \item Verify that 77 is indeed the multiplicative inverse of 5 in $\mathbb{Z}_{192}$. Explain in your own words how you know that you are correct.\\
+        To verify, I will find $77 * 5 \mod{192}$. $77*5 = 385 = 192*2 + 1$, so $77 * 5 \equiv 1 \mod{192}$, so $5^{-1} \mod{192}$ is indeed 77.
+        \item Using the RSA Cryptosystem Crux Theorem, explain how Bob can use the number $D$ to decode Alice’s encoded message $M^E$ and recover her original message $M$.\\
+        By the Crux Theorem, $M^{ED} = M \mod{pq}$. The encoded message Bob receives from Alice is $M^{E}$. To find $M$ and decode the message, Bob should calculate $(M^{E})^{D} \mod{pq}$.
+    \end{enumerate}
 \end{enumerate}
 \end{document}
