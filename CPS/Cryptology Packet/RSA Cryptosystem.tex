@@ -89,5 +89,28 @@ To decode the message, Bob must find $D$, the multiplicative inverse of $E$ in $
         \item Using the RSA Cryptosystem Crux Theorem, explain how Bob can use the number $D$ to decode Alice’s encoded message $M^E$ and recover her original message $M$.\\
         By the Crux Theorem, $M^{ED} = M \mod{pq}$. The encoded message Bob receives from Alice is $M^{E}$. To find $M$ and decode the message, Bob should calculate $(M^{E})^{D} \mod{pq}$.
     \end{enumerate}
+\end{enumerate} \hrule \vspace{8pt}   
+\textbf{Why RSA Encryption is Useful}
+\begin{enumerate} 
+    \item Suppose that you are listening in on Bob's public transmission and you hear that $pq = 21$ and $E = 5$. Recover $(p - 1)(q - 1)$ and $D$. You have broken Bob's code!\\
+    $pq = 21$, where both $p$ and $q$ are prime. Either $p = 1, q = 21$ (which would be stupid), or $p = 3, q = 7$. Thus, $(p-1)(q-1) = 2 \times 6 = 12$. $D = E^{-1} \mod{12}$, so $D = 5^{-1} \mod{12} = 5$. Thus, $(p-1)(q-1) = 12, D = 5$.
+    \item You are a secret agent. An evil spy with shallow number theory skills uses the RSA Public Key Coding System in which the public modulus is $n = 1537$, and the encoding exponent is $E = 47$. You intercept one of the encoded secret messages being sent to the evil spy, namely the number 570. Using your superior number theory skills, decode this message, thereby saving countless people from the fiendish plot of the evil spy.\\
+    By brute-force testing increasing prime numbers, $p = 29, q = 53$. Thus, $(p-1)(q-1) = 28 \times 52 = 1456$. $D = 31$. $M = M^{ED} \mod{pq} = 570^{D} \mod{pq}= 570^{31} \mod{1537} = (570^3)^{10} \times 570 = (120490\cdot1537 - 130)^{10} \times 570 \equiv (-130)^{10} \times 570 = ((-130)^2)^{5} \times 570 \equiv (-7)^{5} \times 570 = -16807 \times 570 \equiv 100 \times 570 = 57000 \equiv 131 \mod{1537}$.
+\end{enumerate}
+These codes are easy to break because the chosen values of $pq$ are relatively small. In practice, $pq$s are hundreds of digits long, making them effectively impossible to factor, even for a computer (though choosing numbers too large can make encoding and decoding difficult).\\
+This is a public key encryption algorithm: Bob can make the encoding key, $E$, available to anyone, but only he has the decoding key $D$.
+\begin{enumerate}
+\setcounter{enumi}{2}
+    \item Summarize RSA encryption and the advantages it offers in your own words.\\
+    In RSA encryption, a person publicly releases an encrypting key and a modulus. Anyone sending them a message uses those two things to encrypt the message, but only the original person has the decrypting key. This allows messages to be encrypted and decrypted without ever needing to transmit a decoding key, eliminating the possibility of interception.
+    \item Can you see any weaknesses in RSA? There are a couple and one has to make a few simple modifications to the messages being sent and the algorithm to avoid them. For the sake of simplicity, the method discussed here is the simplest version and in practice more sophisticated methods (based on the same idea) are used.\\
+    When implemented correctly, RSA encryption has no weaknesses, barring quantum computers, because being able to efficiently factor large numbers allows for breaking the encryption.\\
+    However, due to a couple of mathematical quirks, the following properties should be ensured:
+    \begin{itemize}
+        \item $p$ and $q$ are both sufficiently large, to ensure a sufficiently large $pq$
+        \item $p-1$ and $q-1$ each have at least one prime factor that is sufficiently large
+        \item $E$ and $D$ are sufficiently large
+    \end{itemize}
+    Other weaknesses of RSA come from its implementation, not the mathematical principles.
 \end{enumerate}
 \end{document}
