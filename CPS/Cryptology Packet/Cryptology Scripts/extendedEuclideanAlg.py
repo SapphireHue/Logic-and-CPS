@@ -10,7 +10,7 @@ def euclideanGCD(a, b):
         # print(str(a) + " = " + str(q) + "*" + str(b) + " + " + str(r))
         a, b = b, r
     # printDivisionEqs(equations)
-    print("gcd(" + str(equations[0]['a']) + ", " + str(equations[0]['b']) + ") = " + str(equations[-1]['b']))
+    # print("gcd(" + str(equations[0]['a']) + ", " + str(equations[0]['b']) + ") = " + str(equations[-1]['b']))
     return equations
 
 def printDivisionEqs(equations): 
@@ -41,9 +41,9 @@ def extendedAlgorithm(a, b):
         newY = x
         a, x, b, y = newA, newX, newB, newY
     currEquation = {'gcd':g, 'a':a, 'x':x, 'b':b, 'y':y}
-    printExtendedEq(currEquation)
+    # printExtendedEq(currEquation)
     return currEquation
-
+"""
 extendedAlgorithm(2, 10) # testing when one number is the gcd of the other
 print("="*20)
 extendedAlgorithm(20, 97) # testing with example
@@ -53,3 +53,4 @@ print("="*20)
 extendedAlgorithm(11111111111, 1000000001) # b 
 print("="*20)
 extendedAlgorithm(45666020043321, 73433510078091009) # c
+"""
